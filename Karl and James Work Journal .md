@@ -15,3 +15,4 @@
 * Created Github Repository
 * Created Discord Channel
 * Created Work Journal
+* Created C# Project
