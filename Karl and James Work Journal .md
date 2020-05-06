@@ -2,6 +2,7 @@
 =============
 **5/5 3pm Kick off Call**
 ---------------
+* Meet and greet, got to know a little about each other
  * Discused how we were going to work on project
     * For communication landed on discord.
     * For code sharing and version control github was selected
