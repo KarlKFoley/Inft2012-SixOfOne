@@ -1,4 +1,4 @@
-**Karl's Work Journal**
+**Karl and James Work Journal**
 =============
 **5/5 3pm Kick off Call**
 ---------------
@@ -10,3 +10,8 @@
     * Discord Channel needs to be started
     * GitHub repository needs to be created and Project file needs to be added to repository
  * Next meeting is on 7/5
+ 
+### 7/5 3pm Prep work - Karl ###
+* Created Github Repository
+* Created Discord Channel
+* Created Work Journal
