@@ -17,3 +17,11 @@
 * Created Discord Channel
 * Created Work Journal
 * Created C# Project
+
+** 7/5 4pm -5:30pm Meeting **
+* Went over GitHub
+* Walked through push, pull and branches
+* Explored GitHub Repository
+
+** 14/7 2pm - ? - Karl **
+* Created Basic UI
