@@ -26,3 +26,6 @@
 
 ### 14/7 2pm - ? - Karl ###
 * Created Basic UI
+
+### 17/5 1am James ###
+* Created Psuedo for potential Dice Check method
