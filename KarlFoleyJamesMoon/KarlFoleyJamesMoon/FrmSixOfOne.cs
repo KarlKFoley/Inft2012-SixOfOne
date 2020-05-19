@@ -22,6 +22,7 @@ namespace KarlFoleyJamesMoon
         private PictureBox[] arrayOfPictureBoxs;
         private const int iAmountOfDice = 6;
         private Random randNumber;
+        private int iTickerCount, iStopTicker;
 
         public FrmSixOfOne()
         {
@@ -35,58 +36,43 @@ namespace KarlFoleyJamesMoon
             arrayOfGraphics = new Graphics[iAmountOfDice] {graDiceOne, graDiceTwo, graDiceThree, graDiceFour, graDiceFive, graDiceSix};
             arrayOfPictureBoxs = new PictureBox[iAmountOfDice] {pictBoxDiceOne, pictBoxDiceTwo, pictBoxDiceThree, pictBoxDiceFour, pictBoxDiceFive, pictBoxDiceSix };
             randNumber = new Random();
+            Application.DoEvents();
         }
 
         private void BtnRoll_Click(object sender, EventArgs e)
         {
-            Clear_Dice();
             int iamountofDiceRolled = HowManyDiceRolled();
-            for(int iDiceNumber = 0; iDiceNumber < iamountofDiceRolled; iDiceNumber++)
+            int[] iScoreOnDice = new int[iamountofDiceRolled];
+            iTickerCount = 0;
+            iStopTicker = randNumber.Next(5, 9);
+            Clear_Dice();
+            for (int iDiceRolls = 0; iDiceRolls < randNumber.Next(5, 8); iDiceRolls++)
             {
-                int iDiceRoll = RollADice();
-                arrayOfPictureBoxs[iDiceNumber].Visible = true;
-                arrayOfPictureBoxs[iDiceNumber].Refresh();
-                arrayOfGraphics[iDiceNumber].Clear(Color.Black);
-                switch (iDiceRoll)
+                for (int iDiceNumber = 0; iDiceNumber < iamountofDiceRolled; iDiceNumber++)
                 {
-                    case 1:
-                        diceSide_One(arrayOfGraphics[iDiceNumber]);
-                         break;
-                    case 2:
-                        diceSide_Two(arrayOfGraphics[iDiceNumber]);
-                        break;
-                    case 3:
-                        diceSide_Three(arrayOfGraphics[iDiceNumber]);
-                        break;
-                    case 4:
-                        diceSide_Four(arrayOfGraphics[iDiceNumber]);
-                        break;
-                    case 5:
-                        diceSide_Five(arrayOfGraphics[iDiceNumber]);
-                        break;
-                    case 6:
-                        diceSide_Six(arrayOfGraphics[iDiceNumber]);
-                        break;
-                    default:
-                        TextBox(iDiceNumber);
-                        break;
+                    int iDiceRoll = RollADice();
+                    arrayOfPictureBoxs[iDiceNumber].Visible = true;
+                    arrayOfPictureBoxs[iDiceNumber].Refresh();
+                    arrayOfGraphics[iDiceNumber].Clear(Color.Black);
+                    displayDice(iDiceNumber, iDiceRoll);
+                    System.Threading.Thread.Sleep(randNumber.Next(200, 400));
+                    iScoreOnDice[iDiceNumber] = iDiceRoll;
+
+
                 }
             }
-
-
         }
+
 
         private void Clear_Dice()
         {
             for (int iDiceNumber = 0; iDiceNumber < iAmountOfDice; iDiceNumber++)
             {
                 arrayOfGraphics[iDiceNumber].Clear(Color.Black);
-                //arrayOfPictureBoxs[iDiceNumber].Visible = false;
-                //pictBoxDiceOne.Visible = false;
+                arrayOfPictureBoxs[iDiceNumber].Visible = false;
             }
 
         }
-
 
 
         private int HowManyDiceRolled()
@@ -106,6 +92,32 @@ namespace KarlFoleyJamesMoon
 
 
         //All below methords handle creating dice faces
+
+        private void displayDice(int idiceLocation, int iDiceRoll)
+        {
+            int iamountofDiceRolled = HowManyDiceRolled();
+            switch (iDiceRoll)
+            {
+                case 1:
+                    diceSide_One(arrayOfGraphics[idiceLocation]);
+                    break;
+                case 2:
+                    diceSide_Two(arrayOfGraphics[idiceLocation]);
+                    break;
+                case 3:
+                    diceSide_Three(arrayOfGraphics[idiceLocation]);
+                    break;
+                case 4:
+                    diceSide_Four(arrayOfGraphics[idiceLocation]);
+                    break;
+                case 5:
+                    diceSide_Five(arrayOfGraphics[idiceLocation]);
+                    break;
+                case 6:
+                    diceSide_Six(arrayOfGraphics[idiceLocation]);
+                    break;
+            }
+        }
 
         private void diceSide_One(Graphics graDiceLocationNumber)
         {
@@ -187,33 +199,5 @@ namespace KarlFoleyJamesMoon
         {
             graDiceLocationNumber.FillEllipse(Brushes.White, 70, 45, 10, 10);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
