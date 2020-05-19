@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmSixOfOne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSixOfOne.Designer.cs">
+      <DependentUpon>FrmSixOfOne.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSixOfOneMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmSixOfOne.resx">
+      <DependentUpon>FrmSixOfOne.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSixOfOneMenu.resx">
       <DependentUpon>FrmSixOfOneMenu.cs</DependentUpon>
     </EmbeddedResource>
