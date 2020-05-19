@@ -24,8 +24,12 @@
 * Walked through push, pull and branches
 * Explored GitHub Repository
 
-### 14/7 2pm - ? - Karl ###
+### 14/7 2pm - 4pm - Karl ###
 * Created Basic UI
+   * Coded Menu Layout
+      * Have second player hidden when one player is selected.
+      * Have not created the sending of data between forms
+   * Coded Basic radio buttons for selecting how many dice are being rolled
 
 ### 17/5 1am James ###
 * Created Psuedo for potential Dice Check method
