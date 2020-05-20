@@ -12,6 +12,7 @@ namespace KarlFoleyJamesMoon
 {
     public partial class FrmSixOfOneMenu : Form
     {
+
         public FrmSixOfOneMenu()
         {
             InitializeComponent();
