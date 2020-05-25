@@ -16,7 +16,7 @@ namespace KarlFoleyJamesMoon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmSixOfOne());
+            Application.Run(new FrmSixOfOneMenu());
         }
     }
 }

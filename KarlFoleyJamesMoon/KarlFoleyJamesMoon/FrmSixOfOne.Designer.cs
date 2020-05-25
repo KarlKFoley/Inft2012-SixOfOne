@@ -47,6 +47,7 @@
             this.pictBoxDiceFour = new System.Windows.Forms.PictureBox();
             this.pictBoxDiceFive = new System.Windows.Forms.PictureBox();
             this.pictBoxDiceSix = new System.Windows.Forms.PictureBox();
+            this.lblScore = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceTwo)).BeginInit();
@@ -263,11 +264,21 @@
             this.pictBoxDiceSix.TabStop = false;
             this.pictBoxDiceSix.Visible = false;
             // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Location = new System.Drawing.Point(435, 9);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(41, 13);
+            this.lblScore.TabIndex = 12;
+            this.lblScore.Text = "First to ";
+            // 
             // FrmSixOfOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 482);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pictBoxDiceSix);
             this.Controls.Add(this.pictBoxDiceFive);
             this.Controls.Add(this.pictBoxDiceFour);
@@ -281,7 +292,7 @@
             this.Controls.Add(this.LblPlayerTwoName);
             this.Controls.Add(this.LblPlayerOneName);
             this.Name = "FrmSixOfOne";
-            this.Text = "Six of One";
+            this.Text = "8";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceOne)).EndInit();
@@ -316,5 +327,6 @@
         private System.Windows.Forms.RadioButton radButDiceNumberThree;
         private System.Windows.Forms.RadioButton radButDiceNumberTwo;
         private System.Windows.Forms.RadioButton radButDiceNumberOne;
+        private System.Windows.Forms.Label lblScore;
     }
 }

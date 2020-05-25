@@ -130,6 +130,7 @@
             this.BtnPlay.TabIndex = 6;
             this.BtnPlay.Text = "Play!";
             this.BtnPlay.UseVisualStyleBackColor = true;
+            this.BtnPlay.Click += new System.EventHandler(this.BtnPlay_Click);
             // 
             // BtnClose
             // 

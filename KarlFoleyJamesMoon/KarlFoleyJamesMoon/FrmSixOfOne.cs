@@ -24,7 +24,7 @@ namespace KarlFoleyJamesMoon
         private Random randNumber;
         private int iTickerCount, iStopTicker;
 
-        public FrmSixOfOne()
+        public FrmSixOfOne(string p1name, string p2name, int score)
         {
             InitializeComponent();
             graDiceOne = pictBoxDiceOne.CreateGraphics();
@@ -36,6 +36,9 @@ namespace KarlFoleyJamesMoon
             arrayOfGraphics = new Graphics[iAmountOfDice] {graDiceOne, graDiceTwo, graDiceThree, graDiceFour, graDiceFive, graDiceSix};
             arrayOfPictureBoxs = new PictureBox[iAmountOfDice] {pictBoxDiceOne, pictBoxDiceTwo, pictBoxDiceThree, pictBoxDiceFour, pictBoxDiceFive, pictBoxDiceSix };
             randNumber = new Random();
+            LblPlayerOneName.Text = p1name;
+            LblPlayerTwoName.Text = p2name;
+            lblScore.Text = "First to " + score;
             Application.DoEvents();
         }
 
