@@ -27,23 +27,23 @@ namespace KarlFoleyJamesMoon
 
         public void SetiFaceTwo(int iAmountOfTwos)
         {
-            iFaceone += iAmountOfTwos;
+            iFaceTwo += iAmountOfTwos;
         }
         public void SetiFaceThree(int iAmountOfThrees)
         {
-            iFaceone += iAmountOfThrees;
+            iFacethree += iAmountOfThrees;
         }
         public void SetiFaceFour(int iAmountOfFours)
         {
-            iFaceone += iAmountOfFours;
+            iFaceFour += iAmountOfFours;
         }
         public void SetiFaceFive(int iAmountOfFives)
         {
-            iFaceone += iAmountOfFives;
+            iFaceFive += iAmountOfFives;
         }
         public void SetiFaceSix(int iAmountOfSixs)
         {
-            iFaceone += iAmountOfSixs;
+            iFaceSix += iAmountOfSixs;
         }
 
         public int GetiFaceone()
@@ -53,23 +53,23 @@ namespace KarlFoleyJamesMoon
 
         public int GetiFaceTwo()
         {
-            return iFaceone;
+            return iFaceTwo;
         }
         public int GetiFacethree()
         {
-            return iFaceone;
+            return iFacethree;
         }
         public int GetiFaceFour()
         {
-            return iFaceone;
+            return iFaceFour;
         }
         public int GetiFaceFive()
         {
-            return iFaceone;
+            return iFaceFive;
         }
         public int GetiFaceSix()
         {
-           return iFaceone;
+           return iFaceSix;
         }
     }
 }

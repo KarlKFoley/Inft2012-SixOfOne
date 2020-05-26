@@ -12,10 +12,11 @@ namespace KarlFoleyJamesMoon
 {
     public partial class FrmSixOfOneMenu : Form
     {
-        private String p1name, p2name;
-        private int score;
+        private String sOneName, sTwoName;
+        private Player playerOne, playerTwo;
+        private int iScore;
         FrmSixOfOne gameSixOfOne;
-
+        Game gameFirstGame;
         public FrmSixOfOneMenu()
         {
             InitializeComponent();
@@ -27,6 +28,11 @@ namespace KarlFoleyJamesMoon
             TbxPlayerTwo.Visible = !TbxPlayerTwo.Visible;
         }
 
+        private void FrmSixOfOneMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -34,18 +40,40 @@ namespace KarlFoleyJamesMoon
 
         private void BtnPlay_Click(object sender, EventArgs e)
         {
-            if (RadButPlayersOne.Checked == true) {
-                p1name = TbxPlayerOne.Text;
-                p2name = "";
-                score = Convert.ToInt32(TbxPlayToScore.Text);
+            try
+            {
+                sOneName = TbxPlayerOne.Text;
+            }catch
+            {
+                sOneName = "Player One";
+            }
+            try
+            {
+                sTwoName = TbxPlayerOne.Text;
+            }
+            catch
+            {
+                sTwoName = "Player Two";
+            }
+
+            try
+            {
+                iScore = Convert.ToInt32(TbxPlayToScore.Text);
+            }
+            catch
+            {
+                iScore = 50;
+            }
+
+            playerOne = new Player(sOneName);
+
+            if (!RadButPlayersOne.Checked) {
+                playerTwo = new Player(sTwoName);
             }
             else
             {
-                p1name = TbxPlayerOne.Text;
-                p2name = TbxPlayerTwo.Text;
-                score = Convert.ToInt32(TbxPlayToScore.Text);
             }
-            gameSixOfOne = new FrmSixOfOne(p1name, p2name, score);
+            gameFirstGame = new Game(playerOne, playerTwo, iScore, true);
             gameSixOfOne.ShowDialog();
 
         }

@@ -185,6 +185,7 @@
             this.Controls.Add(this.LblSetup);
             this.Name = "FrmSixOfOneMenu";
             this.Text = "Six of One Menu";
+            this.Load += new System.EventHandler(this.FrmSixOfOneMenu_Load);
             this.GboxPlayers.ResumeLayout(false);
             this.GboxPlayers.PerformLayout();
             this.ResumeLayout(false);

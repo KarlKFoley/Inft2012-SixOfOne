@@ -10,23 +10,24 @@ namespace KarlFoleyJamesMoon
     {
         private Player[] pPlayers = new Player[2];
         private Dice dDiceSatitics;
-        private int iPlayToScore;
+        private int iPlayToScore, iPlayersTrun;
         
 
-        public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore, bool bPlayerOrder ) 
+        public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore, bool bPlayerOrder) 
         {
             iPlayToScore = iSelectedScore;
             dDiceSatitics = new Dice();
-            if (bPlayerOrder) 
+            pPlayers[1] = pNewPlayerOne;
+            pPlayers[2] = pNewPlayerTwo;
+            if (bPlayerOrder)
             {
-                pPlayers[1] = pNewPlayerOne;
-                pPlayers[2] = pNewPlayerTwo;
+                iPlayersTrun = 0;
             }
             else
             {
-                pPlayers[1] = pNewPlayerTwo;
-                pPlayers[2] = pNewPlayerOne;
+                iPlayersTrun = 1;
             }
+        
         }
 
         public void SetDiceFace(int[] iDice) 
