@@ -52,4 +52,7 @@
    * Moved dice displaying to its own methord.
    * Moved Rolling dice to its own methord.
   
+### 25/5 10pm - James ###
+* Attempted variable carry over from Menu to game
+* Create dice roll mockup (posted on discord)
       
