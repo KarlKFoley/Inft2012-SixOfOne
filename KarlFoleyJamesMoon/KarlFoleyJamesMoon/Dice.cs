@@ -20,30 +20,30 @@ namespace KarlFoleyJamesMoon
             iFaceSix = 0;
         }
 
-        public void SetiFaceone(int iAmountOfOnes)
+        public void IncrementFaceone()
         {
-            iFaceone += iAmountOfOnes;
+            iFaceone++;
         }
 
-        public void SetiFaceTwo(int iAmountOfTwos)
+        public void IncrementFaceTwo()
         {
-            iFaceTwo += iAmountOfTwos;
+            iFaceTwo ++;
         }
-        public void SetiFaceThree(int iAmountOfThrees)
+        public void IncrementFaceThree()
         {
-            iFacethree += iAmountOfThrees;
+            iFacethree ++;
         }
-        public void SetiFaceFour(int iAmountOfFours)
+        public void IncrementFaceFour()
         {
-            iFaceFour += iAmountOfFours;
+            iFaceFour ++;
         }
-        public void SetiFaceFive(int iAmountOfFives)
+        public void IncrementFaceFive()
         {
-            iFaceFive += iAmountOfFives;
+            iFaceFive ++;
         }
-        public void SetiFaceSix(int iAmountOfSixs)
+        public void IncrementFaceSix()
         {
-            iFaceSix += iAmountOfSixs;
+            iFaceSix ++;
         }
 
         public int GetiFaceone()

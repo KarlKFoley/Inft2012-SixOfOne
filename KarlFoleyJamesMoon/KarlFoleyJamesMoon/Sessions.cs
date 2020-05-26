@@ -9,7 +9,7 @@ namespace KarlFoleyJamesMoon
     class Sessions
     {
         private Player pFirstPlayer, pSecondPlayer;
-        private Game[] gGames = new Game[1];
+        private Game gGame;
         private int iCurrentGame, iplayerOneWins, iplayerTwoWins;
 
         public Sessions(string sPlayerName, string sPlayerTwoName, int iScore,bool firstPLayer)
@@ -19,18 +19,13 @@ namespace KarlFoleyJamesMoon
             iplayerTwoWins = 0;
             pFirstPlayer = new Player(sPlayerName);
             pSecondPlayer = new Player(sPlayerTwoName);
-            gGames[iCurrentGame] = new Game(pFirstPlayer, pSecondPlayer, iScore, firstPLayer);
+            gGame = new Game(pFirstPlayer, pSecondPlayer, iScore, firstPLayer);
         }
 
         public void addGame (int iScore, bool firstPLayer)
         {
             iCurrentGame++;
-            gGames[iCurrentGame] = new Game(pFirstPlayer, pSecondPlayer, iScore, firstPLayer);
-        }
-
-        public Game GetCurrentGame()
-        {
-            return gGames[iCurrentGame];
+            gGame = new Game(pFirstPlayer, pSecondPlayer, iScore, firstPLayer);
         }
 
         public void playerOneWins()

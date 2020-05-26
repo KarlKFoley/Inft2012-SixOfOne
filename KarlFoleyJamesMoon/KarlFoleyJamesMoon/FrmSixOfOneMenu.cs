@@ -16,7 +16,7 @@ namespace KarlFoleyJamesMoon
         private Player playerOne, playerTwo;
         private int iScore;
         FrmSixOfOne gameSixOfOne;
-        Game gameFirstGame;
+        Sessions gameSession;
         public FrmSixOfOneMenu()
         {
             InitializeComponent();
@@ -66,14 +66,14 @@ namespace KarlFoleyJamesMoon
             }
 
             playerOne = new Player(sOneName);
-
-            if (!RadButPlayersOne.Checked) {
-                playerTwo = new Player(sTwoName);
+            //to handle creating AI once created
+            if (RadButPlayerTwo.Checked) 
+            {
             }
             else
             {
             }
-            gameFirstGame = new Game(playerOne, playerTwo, iScore, true);
+            gameSession = new Sessions(sOneName, sTwoName, iScore, true);
             gameSixOfOne.ShowDialog();
 
         }

@@ -22,7 +22,6 @@ namespace KarlFoleyJamesMoon
         private PictureBox[] arrayOfPictureBoxs;
         private const int iAmountOfDice = 6;
         private Random randNumber;
-        private int iTickerCount, iStopTicker;
 
         public FrmSixOfOne(string p1name, string p2name, int score)
         {
@@ -46,8 +45,6 @@ namespace KarlFoleyJamesMoon
         {
             int iamountofDiceRolled = HowManyDiceRolled();
             int[] iScoreOnDice = new int[iamountofDiceRolled];
-            iTickerCount = 0;
-            iStopTicker = randNumber.Next(5, 9);
             Clear_Dice();
             for (int iDiceRolls = 0; iDiceRolls < randNumber.Next(5, 8); iDiceRolls++)
             {

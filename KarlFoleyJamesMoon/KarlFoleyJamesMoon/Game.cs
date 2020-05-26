@@ -31,7 +31,8 @@ namespace KarlFoleyJamesMoon
         }
 
         public void SetDiceFace(int[] iDice) 
-        { 
+        {
+            dDiceSatitics = new Dice();
             foreach(int dice in iDice) 
             {
                 switch (dice)
