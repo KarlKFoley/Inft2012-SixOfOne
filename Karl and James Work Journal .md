@@ -55,4 +55,7 @@
 ### 25/5 10pm - James ###
 * Attempted variable carry over from Menu to game
 * Create dice roll mockup (posted on discord)
-      
+     
+### 26/5 6pm - 8pm - 10pm - 12am - James ###
+* Created number checker and sorter for FrmSixOfOne.cs
+* Started rule checker
