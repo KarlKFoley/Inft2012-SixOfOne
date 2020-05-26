@@ -292,7 +292,7 @@
             this.Controls.Add(this.LblPlayerTwoName);
             this.Controls.Add(this.LblPlayerOneName);
             this.Name = "FrmSixOfOne";
-            this.Text = "8";
+            this.Text = "Six Of One";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceOne)).EndInit();
