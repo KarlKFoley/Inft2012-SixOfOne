@@ -11,7 +11,7 @@ namespace KarlFoleyJamesMoon
     {
         private Player[] pPlayers = new Player[2];
         private Dice dDiceSatitics;
-        private int iPlayToScore, iPlayersTurn;
+        private int iPlayToScore, iPlayersTurn, countResult;
         private bool bGameEnd, bScoreReached;
 
         public Player[] Players
@@ -77,9 +77,7 @@ namespace KarlFoleyJamesMoon
             //Counts how many of each number is rolled
             for (int i = 0; i < iScoreOnDice.Length; i++)
             {
-                int result = iScoreOnDice[i];
-
-                switch (result)
+                switch (iScoreOnDice[i])
                 {
                     case 1: dDiceSatitics.IncrementFaceOne(); break;
                     case 2: dDiceSatitics.IncrementFaceTwo(); break;
@@ -89,7 +87,7 @@ namespace KarlFoleyJamesMoon
                     case 6: dDiceSatitics.IncrementFaceSix(); break;
                     default: break;
                 }
-                Players[iPlayersTurn].Score += result; //Adds all dice to player score
+                countResult += iScoreOnDice[i];
             }
         }
 
@@ -104,7 +102,7 @@ namespace KarlFoleyJamesMoon
                     case 4: GameRuleFour(); break;
                     default: break;
                 }
-            if (ThreeOfAKind() == true) //Check for three of a kind
+            if (ThreeOfAKind()) //Check for three of a kind
             {
                 pPlayers[iPlayersTurn].Score = pPlayers[iPlayersTurn].Score * 2;
             }
