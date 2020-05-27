@@ -23,7 +23,6 @@ namespace KarlFoleyJamesMoon
         private const int iAmountOfDice = 6;
         private Random randNumber;
         private Sessions sCurrentSession;
-        private Dice diceGame;
         const string sScoreTitle = "Score: ";
 
         public FrmSixOfOne(Sessions gameSession)
@@ -65,14 +64,35 @@ namespace KarlFoleyJamesMoon
                 }
             }
             //iScoreOnDice = new int[] { 1, 1, 1, 1, 1, 1 };
-            sCurrentSession.gCurrentGame.CountScore(iScoreOnDice);
-            sCurrentSession.gCurrentGame.SwitchPlayer();
-            lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + " Turn";
+            LblTurnOutcome.Text = sCurrentSession.gCurrentGame.CountScore(iScoreOnDice);
             LblScorePlayerOne.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[0].Score);
             LblScorePlayerTwo.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[1].Score);
+            if (sCurrentSession.GameHasEnded())
+            {
+                BtnRoll.Visible = false;
+                lblNewScore.Visible = true;
+                LblNewGame.Visible = true;
+                tbxNewScore.Visible = true;
+                btnExit.Visible = true;
+                btnNewGame.Visible = true;
+            }
+            else
+            {
+                sCurrentSession.gCurrentGame.SwitchPlayer();
+                lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + "'s Turn";
+            }
+            refresh();
+        }
+
+        private void refresh()
+        {
+            btnExit.Refresh();
+            BtnRoll.Refresh();
+            LblTurnOutcome.Refresh();
             LblScorePlayerOne.Refresh();
             LblScorePlayerTwo.Refresh();
             lblPlayerTurn.Refresh();
+            tbxNewScore.Refresh();
         }
 
 
@@ -210,6 +230,36 @@ namespace KarlFoleyJamesMoon
         private void diceSide_LeftCenter(Graphics graDiceLocationNumber)
         {
             graDiceLocationNumber.FillEllipse(Brushes.White, 70, 45, 10, 10);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            int iScore;
+            try
+            {
+                iScore = Convert.ToInt32(tbxNewScore.Text);
+            }
+            catch
+            {
+                iScore = 50;
+            }
+
+            sCurrentSession.restartGame(iScore, true);
+            LblScorePlayerOne.Text = sScoreTitle + "0";
+            LblScorePlayerTwo.Text = sScoreTitle + "0";
+            LblTurnOutcome.Text = "It's a new Game";
+            BtnRoll.Visible = true;
+            lblNewScore.Visible = false;
+            LblNewGame.Visible = false;
+            btnExit.Visible = false;
+            btnNewGame.Visible = false; 
+            tbxNewScore.Visible = false;
+            refresh();
         }
     }
 }

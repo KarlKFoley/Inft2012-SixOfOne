@@ -9,7 +9,7 @@ namespace KarlFoleyJamesMoon
     public class Player
     {
         private string sName;
-        public int iScore;
+        private int iScore;
 
         public string name
         {

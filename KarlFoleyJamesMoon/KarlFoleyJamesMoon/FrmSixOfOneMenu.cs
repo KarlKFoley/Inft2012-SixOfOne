@@ -14,7 +14,7 @@ namespace KarlFoleyJamesMoon
     {
         private String sOneName, sTwoName;
         private int iScore;
-        public Sessions gameSession;
+        private Sessions gameSession;
         private FrmSixOfOne SixOfOne;
         public FrmSixOfOneMenu()
         {

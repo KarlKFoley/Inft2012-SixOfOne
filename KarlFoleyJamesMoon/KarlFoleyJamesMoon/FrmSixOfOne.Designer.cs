@@ -49,6 +49,12 @@
             this.pictBoxDiceSix = new System.Windows.Forms.PictureBox();
             this.lblScore = new System.Windows.Forms.Label();
             this.lblPlayerTurn = new System.Windows.Forms.Label();
+            this.LblTurnOutcome = new System.Windows.Forms.Label();
+            this.btnNewGame = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.tbxNewScore = new System.Windows.Forms.TextBox();
+            this.LblNewGame = new System.Windows.Forms.Label();
+            this.lblNewScore = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceTwo)).BeginInit();
@@ -283,11 +289,76 @@
             this.lblPlayerTurn.Size = new System.Drawing.Size(0, 25);
             this.lblPlayerTurn.TabIndex = 13;
             // 
+            // LblTurnOutcome
+            // 
+            this.LblTurnOutcome.AutoSize = true;
+            this.LblTurnOutcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTurnOutcome.Location = new System.Drawing.Point(440, 339);
+            this.LblTurnOutcome.Name = "LblTurnOutcome";
+            this.LblTurnOutcome.Size = new System.Drawing.Size(0, 25);
+            this.LblTurnOutcome.TabIndex = 15;
+            // 
+            // btnNewGame
+            // 
+            this.btnNewGame.Location = new System.Drawing.Point(374, 447);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(75, 23);
+            this.btnNewGame.TabIndex = 16;
+            this.btnNewGame.Text = "Start Game";
+            this.btnNewGame.UseVisualStyleBackColor = true;
+            this.btnNewGame.Visible = false;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(554, 447);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 17;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Visible = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // tbxNewScore
+            // 
+            this.tbxNewScore.Location = new System.Drawing.Point(374, 421);
+            this.tbxNewScore.Name = "tbxNewScore";
+            this.tbxNewScore.Size = new System.Drawing.Size(75, 20);
+            this.tbxNewScore.TabIndex = 18;
+            this.tbxNewScore.Visible = false;
+            // 
+            // LblNewGame
+            // 
+            this.LblNewGame.AutoSize = true;
+            this.LblNewGame.Location = new System.Drawing.Point(378, 387);
+            this.LblNewGame.Name = "LblNewGame";
+            this.LblNewGame.Size = new System.Drawing.Size(60, 13);
+            this.LblNewGame.TabIndex = 19;
+            this.LblNewGame.Text = "New Game";
+            this.LblNewGame.Visible = false;
+            // 
+            // lblNewScore
+            // 
+            this.lblNewScore.AutoSize = true;
+            this.lblNewScore.Location = new System.Drawing.Point(378, 405);
+            this.lblNewScore.Name = "lblNewScore";
+            this.lblNewScore.Size = new System.Drawing.Size(60, 13);
+            this.lblNewScore.TabIndex = 20;
+            this.lblNewScore.Text = "New Score";
+            this.lblNewScore.Visible = false;
+            // 
             // FrmSixOfOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 482);
+            this.Controls.Add(this.lblNewScore);
+            this.Controls.Add(this.LblNewGame);
+            this.Controls.Add(this.tbxNewScore);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnNewGame);
+            this.Controls.Add(this.LblTurnOutcome);
             this.Controls.Add(this.lblPlayerTurn);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pictBoxDiceSix);
@@ -340,5 +411,11 @@
         private System.Windows.Forms.RadioButton radButDiceNumberOne;
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Label lblPlayerTurn;
+        private System.Windows.Forms.Label LblTurnOutcome;
+        private System.Windows.Forms.Button btnNewGame;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TextBox tbxNewScore;
+        private System.Windows.Forms.Label LblNewGame;
+        private System.Windows.Forms.Label lblNewScore;
     }
 }

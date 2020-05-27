@@ -71,14 +71,14 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        public void CountScore(int[] iScoreOnDice)
+        public string CountScore(int[] iScoreOnDice)
         {
             int result = 0;
             dDiceSatitics = new Dice();
             //Counts how many of each number is rolled
             for (int i = 0; i < iScoreOnDice.Length; i++)
             {
-                switch (result)
+                switch (iScoreOnDice[i])
                 {
                     case 1: dDiceSatitics.IncrementFaceOne(); break;
                     case 2: dDiceSatitics.IncrementFaceTwo(); break;
@@ -87,28 +87,38 @@ namespace KarlFoleyJamesMoon
                     case 5: dDiceSatitics.IncrementFaceFive(); break;
                     case 6: dDiceSatitics.IncrementFaceSix(); break;
                     default: break;
-                } //Adds all dice to player score
+                }
                 result += iScoreOnDice[i];
             }
-            GameRules(result);
-            Players[iPlayersTurn].Score += result;
+            return GameRules(result);
         }
 
-        public void GameRules(int score)
+        public string GameRules(int score)
         {
+            string returnmessage;
             if (dDiceSatitics.iOne >= 1) //Check for any 1's
+            {
                 switch (dDiceSatitics.iOne) //Counts how many 1's
                 {
-                    case 1: GameRuleOne(); break;
-                    case 2: GameRuleTwo(); break;
-                    case 3: GameRuleThree(); break;
-                    case 4: GameRuleFour(); break;
-                    default: break;
+                    case 1: returnmessage = GameRuleOne(); break;
+                    case 2: returnmessage =  GameRuleTwo(); break;
+                    case 3: returnmessage =  GameRuleThree(); break;
+                    case 4: returnmessage = GameRuleFour(); break;
+                    default: returnmessage = ""; break;
                 }
-            if (ThreeOfAKind() == true) //Check for three of a kind
+            }else if (ThreeOfAKind()) //Check for three of a kind
             {
                 pPlayers[iPlayersTurn].Score = score * 2;
+                returnmessage = Players[iPlayersTurn].name + ", you scored double Points \nbecuase you rolled three of a kind!\n You Scored " + score * 2 + " this turn.";
+                ScoreReached();
             }
+            else
+            {
+                returnmessage = Players[iPlayersTurn].name + ", you scored " + score + " this turn.";
+                pPlayers[iPlayersTurn].Score = score;
+                ScoreReached();
+            }
+            return returnmessage;
         }
 
         public bool ThreeOfAKind()
@@ -139,33 +149,46 @@ namespace KarlFoleyJamesMoon
             }
         }
 
+        public void ScoreReached()
+        {
+            if(Players[PlayerTurn].Score >= iPlayToScore)
+            {
+                bCurrentPlayerWins = true;
+                EndGame();
+            }
+        }
+
         public void EndGame()
         {
                 bGameEnd =  true;
         }
 
-        private void GameRuleOne()
+        private string GameRuleOne()
         {
             //Player score is unaltered
+            return  Players[iPlayersTurn].name +", you rolled a single one.\n You scored 0 Points this turn.";
         }
 
-        private void GameRuleTwo()
+        private string GameRuleTwo()
         {
             //Player score is reset to 0
             pPlayers[iPlayersTurn].Score = 0;
+            return Players[iPlayersTurn].name + ", you rolled snake eyes.\n Your total score is now 0.";
         }
 
-        private void GameRuleThree()
+        private string GameRuleThree()
         {
             //Player immediatly loses (opponent wins)
             EndGame();
+            return Players[iPlayersTurn].name + ", you rolled three one's.\n You Loose.";
         }
 
-        private void GameRuleFour()
+        private string GameRuleFour()
         {
             //Player immediatly wins (opponent loses)
             bCurrentPlayerWins = true;
             EndGame();
+            return Players[iPlayersTurn].name + ", you rolled Three one's.\n You Win.";
         }
     }
 }

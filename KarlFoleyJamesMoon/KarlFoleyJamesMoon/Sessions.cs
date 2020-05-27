@@ -11,6 +11,7 @@ namespace KarlFoleyJamesMoon
         private Player pFirstPlayer, pSecondPlayer;
         private Game gGame;
         private int iplayerOneWins, iplayerTwoWins;
+        private bool bActiveAi;
         #region Public properties
         public Player playerOne
         {
@@ -51,10 +52,22 @@ namespace KarlFoleyJamesMoon
             }
         }
 
+        public bool ActiveAi
+        {
+            get
+            {
+                return bActiveAi;
+            }
+            set
+            {
+                bActiveAi = value;
+            }
+        }
+
         #endregion
         public Sessions(string sPlayerName, string sPlayerTwoName, int iScore,bool firstPLayer)
         {
-
+            bActiveAi = false;
             iplayerOneWins = 0;
             iplayerTwoWins = 0;
             pFirstPlayer = new Player(sPlayerName);
