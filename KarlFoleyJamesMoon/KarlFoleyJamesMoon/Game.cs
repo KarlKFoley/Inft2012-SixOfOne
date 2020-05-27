@@ -52,6 +52,21 @@ namespace KarlFoleyJamesMoon
                 iPlayersTurn = 1;
             }
 
+            //Counts how many of each number is rolled
+            for (int i = 0; i < 6; i++)
+            {
+                int result = iScoreOnDice[i];
+                switch (result)
+                {
+                    case 1: dDiceSatitics.IncrementFaceone(); break;
+                    case 2: dDiceSatitics.IncrementFaceTwo(); break;
+                    case 3: dDiceSatitics.IncrementFaceThree(); break;
+                    case 4: dDiceSatitics.IncrementFaceFour(); break;
+                    case 5: dDiceSatitics.IncrementFaceFive(); break;
+                    case 6: dDiceSatitics.IncrementFaceFive(); break;
+                    default: break;
+                }
+            }
             //WIP Dice Check (proper implementation soon)
             int newRule = 1; // stand in value (1)
             switch (newRule)
