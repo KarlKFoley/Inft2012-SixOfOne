@@ -13,10 +13,9 @@ namespace KarlFoleyJamesMoon
     public partial class FrmSixOfOneMenu : Form
     {
         private String sOneName, sTwoName;
-        private Player playerOne, playerTwo;
         private int iScore;
-        FrmSixOfOne gameSixOfOne;
-        Sessions gameSession;
+        public Sessions gameSession;
+        private FrmSixOfOne SixOfOne;
         public FrmSixOfOneMenu()
         {
             InitializeComponent();
@@ -49,7 +48,7 @@ namespace KarlFoleyJamesMoon
             }
             try
             {
-                sTwoName = TbxPlayerOne.Text;
+                sTwoName = TbxPlayerTwo.Text;
             }
             catch
             {
@@ -64,8 +63,6 @@ namespace KarlFoleyJamesMoon
             {
                 iScore = 50;
             }
-
-            playerOne = new Player(sOneName);
             //to handle creating AI once created
             if (RadButPlayerTwo.Checked) 
             {
@@ -74,7 +71,8 @@ namespace KarlFoleyJamesMoon
             {
             }
             gameSession = new Sessions(sOneName, sTwoName, iScore, true);
-            gameSixOfOne.ShowDialog();
+            FrmSixOfOne SixOfOne = new FrmSixOfOne(gameSession);
+            SixOfOne.ShowDialog();
 
         }
     }

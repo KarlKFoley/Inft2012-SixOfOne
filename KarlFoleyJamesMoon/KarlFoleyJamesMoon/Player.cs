@@ -6,10 +6,35 @@ using System.Threading.Tasks;
 
 namespace KarlFoleyJamesMoon
 {
-    class Player
+    public class Player
     {
         private string sName;
         private int iScore;
+
+        public string name
+        {
+            get
+            {
+                return sName;
+            }
+            set
+            {
+                sName = value;
+            }
+        }
+
+        public int Score
+        {
+            get
+            {
+                return iScore;
+            }
+            set
+            {
+                iScore = value;
+            }
+        }
+
 
         public Player()
         {
@@ -23,29 +48,11 @@ namespace KarlFoleyJamesMoon
             iScore = 0;
         }
 
-        public void SetName(string sPlayerName)
-        {
-            sName = sPlayerName;
-        }
-        public void SetScore(int iNewScore)
-        {
-            iScore = iNewScore;
-        }
-
         public void AddTurnScore(int iNewScore)
         {
             iScore += iNewScore;
         }
 
-        public string GetName()
-        {
-            return sName;
-        }
-
-        public int GetScore()
-        {
-            return iScore;
-        }
 
 
     }

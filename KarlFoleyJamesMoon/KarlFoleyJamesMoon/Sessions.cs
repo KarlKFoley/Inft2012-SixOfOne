@@ -6,15 +6,55 @@ using System.Threading.Tasks;
 
 namespace KarlFoleyJamesMoon
 {
-    class Sessions
+    public class Sessions
     {
         private Player pFirstPlayer, pSecondPlayer;
         private Game gGame;
-        private int iCurrentGame, iplayerOneWins, iplayerTwoWins;
+        private int iplayerOneWins, iplayerTwoWins;
+        #region Public properties
+        public Player playerOne
+        {
+            get
+            {
+                return pFirstPlayer;
+            }
+        }
 
+        public Player playerTwo
+        {
+            get
+            {
+                return pSecondPlayer;
+            }
+        }
+
+        public Game gCurrentGame
+        {
+            get
+            {
+                return gGame;
+            }
+        }
+
+        public int iPlayerOneTotalWins
+        {
+            get
+            {
+                return iplayerOneWins;
+            }
+        }
+        public int iPlayerTwoTotalWins
+        {
+            get
+            {
+                return iplayerTwoWins;
+            }
+        }
+
+        #endregion
         public Sessions(string sPlayerName, string sPlayerTwoName, int iScore,bool firstPLayer)
         {
-            iCurrentGame = 0;
+
             iplayerOneWins = 0;
             iplayerTwoWins = 0;
             pFirstPlayer = new Player(sPlayerName);
@@ -22,9 +62,8 @@ namespace KarlFoleyJamesMoon
             gGame = new Game(pFirstPlayer, pSecondPlayer, iScore, firstPLayer);
         }
 
-        public void addGame (int iScore, bool firstPLayer)
+        public void restartGame(int iScore, bool firstPLayer)
         {
-            iCurrentGame++;
             gGame = new Game(pFirstPlayer, pSecondPlayer, iScore, firstPLayer);
         }
 
@@ -35,15 +74,6 @@ namespace KarlFoleyJamesMoon
         public void PlayerTwoWins()
         {
             iplayerTwoWins++;
-        }
-
-        public int getPLayerOneWins()
-        {
-           return iplayerOneWins;
-        }
-        public int  getPLayerTwoWins()
-        {
-            return iplayerTwoWins;
         }
     }
 }

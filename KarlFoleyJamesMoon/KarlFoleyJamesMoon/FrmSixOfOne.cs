@@ -22,8 +22,9 @@ namespace KarlFoleyJamesMoon
         private PictureBox[] arrayOfPictureBoxs;
         private const int iAmountOfDice = 6;
         private Random randNumber;
+        private Sessions sCurrentSession;
 
-        public FrmSixOfOne(string p1name, string p2name, int score)
+        public FrmSixOfOne(Sessions gameSession)
         {
             InitializeComponent();
             graDiceOne = pictBoxDiceOne.CreateGraphics();
@@ -35,9 +36,11 @@ namespace KarlFoleyJamesMoon
             arrayOfGraphics = new Graphics[iAmountOfDice] {graDiceOne, graDiceTwo, graDiceThree, graDiceFour, graDiceFive, graDiceSix};
             arrayOfPictureBoxs = new PictureBox[iAmountOfDice] {pictBoxDiceOne, pictBoxDiceTwo, pictBoxDiceThree, pictBoxDiceFour, pictBoxDiceFive, pictBoxDiceSix };
             randNumber = new Random();
-            LblPlayerOneName.Text = p1name;
-            LblPlayerTwoName.Text = p2name;
-            lblScore.Text = "First to " + score;
+            sCurrentSession = gameSession;
+            LblPlayerOneName.Text = sCurrentSession.gCurrentGame.Players[0].name;
+            LblPlayerTwoName.Text = sCurrentSession.gCurrentGame.Players[1].name;
+            lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + " Turn";
+            lblScore.Text = "First to " + sCurrentSession.gCurrentGame.PlayToScore;
             Application.DoEvents();
         }
 
@@ -57,10 +60,11 @@ namespace KarlFoleyJamesMoon
                     displayDice(iDiceNumber, iDiceRoll);
                     System.Threading.Thread.Sleep(randNumber.Next(200, 400));
                     iScoreOnDice[iDiceNumber] = iDiceRoll;
-
-
                 }
             }
+            sCurrentSession.gCurrentGame.SwitchPlayer();
+            lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + " Turn";
+            lblPlayerTurn.Refresh();
         }
 
 

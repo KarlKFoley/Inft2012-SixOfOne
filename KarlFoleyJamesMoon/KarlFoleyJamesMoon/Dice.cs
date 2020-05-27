@@ -9,7 +9,49 @@ namespace KarlFoleyJamesMoon
     class Dice
     {
         private int iFaceone, iFaceTwo, iFacethree, iFaceFour, iFaceFive, iFaceSix;
-
+        
+        public int iOne
+        {
+            get
+            {
+                return iFaceone;
+            }
+        }
+        public int iTwo
+        {
+            get
+            {
+                return iFaceTwo;
+            }
+        }
+        public int ithree
+        {
+            get
+            {
+                return iFacethree;
+            }
+        }
+        public int iFour
+        {
+            get
+            {
+                return iFaceFour;
+            }
+        }
+        public int iFive
+        {
+            get
+            {
+                return iFaceFive;
+            }
+        }
+        public int iSix
+        {
+            get
+            {
+                return iFaceSix;
+            }
+        }
         public Dice()
         {
             iFaceone = 0;
@@ -20,7 +62,7 @@ namespace KarlFoleyJamesMoon
             iFaceSix = 0;
         }
 
-        public void IncrementFaceone()
+        public void IncrementFaceOne()
         {
             iFaceone++;
         }
@@ -44,32 +86,6 @@ namespace KarlFoleyJamesMoon
         public void IncrementFaceSix()
         {
             iFaceSix ++;
-        }
-
-        public int GetiFaceone()
-        {
-            return iFaceone;
-        }
-
-        public int GetiFaceTwo()
-        {
-            return iFaceTwo;
-        }
-        public int GetiFacethree()
-        {
-            return iFacethree;
-        }
-        public int GetiFaceFour()
-        {
-            return iFaceFour;
-        }
-        public int GetiFaceFive()
-        {
-            return iFaceFive;
-        }
-        public int GetiFaceSix()
-        {
-           return iFaceSix;
         }
     }
 }

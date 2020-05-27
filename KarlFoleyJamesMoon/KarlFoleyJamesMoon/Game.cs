@@ -6,28 +6,64 @@ using System.Threading.Tasks;
 
 namespace KarlFoleyJamesMoon
 {
-    class Game
+    public class Game
     {
         private Player[] pPlayers = new Player[2];
         private Dice dDiceSatitics;
-        private int iPlayToScore, iPlayersTrun;
-        
+        private int iPlayToScore, iPlayersTurn;
+
+
+        public Player[] Players
+        {
+            get
+            {
+                return pPlayers;
+            }
+        }
+
+        public int PlayToScore
+        {
+            get
+            {
+                return iPlayToScore;
+            }
+        }
+
+        public int PlayerTurn
+        {
+            get
+            {
+                return iPlayersTurn;
+            }
+        }
 
         public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore, bool bPlayerOrder) 
         {
             iPlayToScore = iSelectedScore;
             dDiceSatitics = new Dice();
-            pPlayers[1] = pNewPlayerOne;
-            pPlayers[2] = pNewPlayerTwo;
+            pPlayers[0] = pNewPlayerOne;
+            pPlayers[1] = pNewPlayerTwo;
             if (bPlayerOrder)
             {
-                iPlayersTrun = 0;
+                iPlayersTurn = 0;
             }
             else
             {
-                iPlayersTrun = 1;
+                iPlayersTurn = 1;
             }
         
+        }
+
+        public void SwitchPlayer()
+        {
+            if(iPlayersTurn == 0)
+            {
+                iPlayersTurn = 1;
+            }
+            else
+            {
+                iPlayersTurn = 0;
+            }
         }
 
         public void SetDiceFace(int[] iDice) 
@@ -38,22 +74,22 @@ namespace KarlFoleyJamesMoon
                 switch (dice)
                 {
                     case 1:
-                        dDiceSatitics.SetiFaceone(1);
+                        dDiceSatitics.IncrementFaceOne();
                         break;
                     case 2:
-                        dDiceSatitics.SetiFaceTwo(1);
+                        dDiceSatitics.IncrementFaceTwo();
                         break;
                     case 3:
-                        dDiceSatitics.SetiFaceThree(1);
+                        dDiceSatitics.IncrementFaceThree();
                         break;
                     case 4:
-                        dDiceSatitics.SetiFaceFour(1);
+                        dDiceSatitics.IncrementFaceFour();
                         break;
                     case 5:
-                        dDiceSatitics.SetiFaceFive(1);
+                        dDiceSatitics.IncrementFaceFive();
                         break;
                     case 6:
-                        dDiceSatitics.SetiFaceSix(1);
+                        dDiceSatitics.IncrementFaceSix();
                         break;
                 }
             }

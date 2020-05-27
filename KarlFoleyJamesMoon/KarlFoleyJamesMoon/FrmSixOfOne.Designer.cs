@@ -48,6 +48,7 @@
             this.pictBoxDiceFive = new System.Windows.Forms.PictureBox();
             this.pictBoxDiceSix = new System.Windows.Forms.PictureBox();
             this.lblScore = new System.Windows.Forms.Label();
+            this.lblPlayerTurn = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceTwo)).BeginInit();
@@ -77,7 +78,7 @@
             // 
             // BtnRoll
             // 
-            this.BtnRoll.Location = new System.Drawing.Point(454, 120);
+            this.BtnRoll.Location = new System.Drawing.Point(454, 163);
             this.BtnRoll.Name = "BtnRoll";
             this.BtnRoll.Size = new System.Drawing.Size(75, 23);
             this.BtnRoll.TabIndex = 2;
@@ -273,11 +274,21 @@
             this.lblScore.TabIndex = 12;
             this.lblScore.Text = "First to ";
             // 
+            // lblPlayerTurn
+            // 
+            this.lblPlayerTurn.AutoSize = true;
+            this.lblPlayerTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerTurn.Location = new System.Drawing.Point(440, 131);
+            this.lblPlayerTurn.Name = "lblPlayerTurn";
+            this.lblPlayerTurn.Size = new System.Drawing.Size(0, 25);
+            this.lblPlayerTurn.TabIndex = 13;
+            // 
             // FrmSixOfOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 482);
+            this.Controls.Add(this.lblPlayerTurn);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pictBoxDiceSix);
             this.Controls.Add(this.pictBoxDiceFive);
@@ -328,5 +339,6 @@
         private System.Windows.Forms.RadioButton radButDiceNumberTwo;
         private System.Windows.Forms.RadioButton radButDiceNumberOne;
         private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Label lblPlayerTurn;
     }
 }
