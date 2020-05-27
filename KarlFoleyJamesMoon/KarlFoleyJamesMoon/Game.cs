@@ -76,17 +76,17 @@ namespace KarlFoleyJamesMoon
         {
 
             //Counts how many of each number is rolled
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < iScoreOnDice.Length; i++)
             {
                 int result = iScoreOnDice[i];
                 switch (result)
                 {
-                    case 1: dDiceSatitics.IncrementFaceOne(); break;
-                    case 2: dDiceSatitics.IncrementFaceTwo(); break;
-                    case 3: dDiceSatitics.IncrementFaceThree(); break;
-                    case 4: dDiceSatitics.IncrementFaceFour(); break;
+                    case 0: dDiceSatitics.IncrementFaceOne(); break;
+                    case 1: dDiceSatitics.IncrementFaceTwo(); break;
+                    case 2: dDiceSatitics.IncrementFaceThree(); break;
+                    case 3: dDiceSatitics.IncrementFaceFour(); break;
+                    case 4: dDiceSatitics.IncrementFaceFive(); break;
                     case 5: dDiceSatitics.IncrementFaceFive(); break;
-                    case 6: dDiceSatitics.IncrementFaceFive(); break;
                     default: break;
                 }
             }
