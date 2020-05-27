@@ -63,6 +63,7 @@ namespace KarlFoleyJamesMoon
                     iScoreOnDice[iDiceNumber] = iDiceRoll;
                 }
             }
+            sCurrentSession.gCurrentGame.CountScore(iScoreOnDice);
             sCurrentSession.gCurrentGame.SwitchPlayer();
             lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + " Turn";
             lblPlayerTurn.Refresh();
