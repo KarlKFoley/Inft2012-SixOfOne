@@ -81,32 +81,37 @@ namespace KarlFoleyJamesMoon
                 int result = iScoreOnDice[i];
                 switch (result)
                 {
-                    case 0: dDiceSatitics.IncrementFaceOne(); break;
-                    case 1: dDiceSatitics.IncrementFaceTwo(); break;
-                    case 2: dDiceSatitics.IncrementFaceThree(); break;
-                    case 3: dDiceSatitics.IncrementFaceFour(); break;
-                    case 4: dDiceSatitics.IncrementFaceFive(); break;
+                    case 1: dDiceSatitics.IncrementFaceOne(); break;
+                    case 2: dDiceSatitics.IncrementFaceTwo(); break;
+                    case 3: dDiceSatitics.IncrementFaceThree(); break;
+                    case 4: dDiceSatitics.IncrementFaceFour(); break;
                     case 5: dDiceSatitics.IncrementFaceFive(); break;
+                    case 6: dDiceSatitics.IncrementFaceSix(); break;
                     default: break;
                 }
             }
             Players[iPlayersTurn].Score = 0;
         }
 
-        public void GameRules( )
+        public void GameRules()
         {
             //WIP Dice Check (proper implementation soon)
-            int newRule = 1; // stand in value (1)
-            switch (newRule)
+
+            switch (dDiceSatitics.iOne)
             {
                 case 1: gameRuleOne(); break;
                 case 2: gameRuleTwo(); break;
                 case 3: gameRuleThree(); break;
                 case 4: gameRuleFour(); break;
-                case 5: gameRuleFive(); break;
-                case 6: gameRuleSix(); break;
                 default: break;
             }
+            if (ThreeOfAKind() == true) { }
+        }
+
+        public bool ThreeOfAKind()
+        {
+            
+            return true;
         }
 
         public void SwitchPlayer()

@@ -66,6 +66,7 @@ namespace KarlFoleyJamesMoon
             }
             //iScoreOnDice = new int[] { 1, 1, 1, 1, 1, 1 };
             sCurrentSession.gCurrentGame.CountScore(iScoreOnDice);
+            sCurrentSession.gCurrentGame.GameRules();
             sCurrentSession.gCurrentGame.SwitchPlayer();
             lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + " Turn";
             LblScorePlayerOne.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[0].Score);
