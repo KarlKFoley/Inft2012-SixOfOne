@@ -16,6 +16,8 @@ namespace KarlFoleyJamesMoon
         private int iScore;
         public Sessions gameSession;
         private FrmSixOfOne SixOfOne;
+        private frmRules Rules = new frmRules();
+
         public FrmSixOfOneMenu()
         {
             InitializeComponent();
@@ -35,6 +37,11 @@ namespace KarlFoleyJamesMoon
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnRules_Click(object sender, EventArgs e)
+        {
+            Rules.ShowDialog();
         }
 
         private void BtnPlay_Click(object sender, EventArgs e)
