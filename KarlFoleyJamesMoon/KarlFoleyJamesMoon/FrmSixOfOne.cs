@@ -64,12 +64,14 @@ namespace KarlFoleyJamesMoon
                     iScoreOnDice[iDiceNumber] = iDiceRoll;
                 }
             }
-            iScoreOnDice = new int[] { 1, 1, 1, 1, 1, 1 };
+            //iScoreOnDice = new int[] { 1, 1, 1, 1, 1, 1 };
             sCurrentSession.gCurrentGame.CountScore(iScoreOnDice);
             sCurrentSession.gCurrentGame.SwitchPlayer();
             lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + " Turn";
-            //LblScorePlayerOne = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[0].Score);
-            //LblScorePlayerTwo = sScoreTitle + sCurrentSession.gCurrentGame.Players[1].Convert.string();
+            LblScorePlayerOne.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[0].Score);
+            LblScorePlayerTwo.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[1].Score);
+            LblScorePlayerOne.Refresh();
+            LblScorePlayerTwo.Refresh();
             lblPlayerTurn.Refresh();
         }
 
