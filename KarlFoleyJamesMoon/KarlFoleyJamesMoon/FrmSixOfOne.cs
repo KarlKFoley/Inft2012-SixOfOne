@@ -63,22 +63,6 @@ namespace KarlFoleyJamesMoon
                     iScoreOnDice[iDiceNumber] = iDiceRoll;
                 }
             }
-
-            //Counts how many of each number is rolled
-            for (int i = 0; i < 6; i++)
-            {
-                int result = iScoreOnDice[i];
-                switch (result)
-                {
-                    case 1: diceGame.IncrementFaceone(); break;
-                    case 2: diceGame.IncrementFaceTwo(); break;
-                    case 3: diceGame.IncrementFaceThree(); break;
-                    case 4: diceGame.IncrementFaceFour(); break;
-                    case 5: diceGame.IncrementFaceFive(); break;
-                    case 6: diceGame.IncrementFaceFive(); break;
-                    default: break;
-                }
-            }
             sCurrentSession.gCurrentGame.SwitchPlayer();
             lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + " Turn";
             lblPlayerTurn.Refresh();
