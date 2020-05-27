@@ -74,7 +74,7 @@ namespace KarlFoleyJamesMoon
 
         public void CountScore(int[] iScoreOnDice)
         {
-
+            dDiceSatitics = new Dice();
             //Counts how many of each number is rolled
             for (int i = 0; i < 6; i++)
             {
