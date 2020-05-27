@@ -57,6 +57,8 @@ namespace KarlFoleyJamesMoon
         public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore, bool bPlayerOrder) 
         {
             iPlayToScore = iSelectedScore;
+            bGameEnd = false;
+            bScoreReached = false;
             dDiceSatitics = new Dice();
             pPlayers[0] = pNewPlayerOne;
             pPlayers[1] = pNewPlayerTwo;

@@ -69,7 +69,7 @@ namespace KarlFoleyJamesMoon
 
         public bool GameHasEnded()
         {
-            if(gGame.EndGame() && gGame.ScoreReached())
+            if(gGame.GameEnded && gGame.ScoreReached)
             {
                 if (gGame.PlayerTurn == 0)
                 {
@@ -81,7 +81,7 @@ namespace KarlFoleyJamesMoon
                 }
                 return true;
             }
-            else if(gGame.EndGame())
+            else if(gGame.GameEnded)
             {
                 if (gGame.PlayerTurn == 0)
                 {
