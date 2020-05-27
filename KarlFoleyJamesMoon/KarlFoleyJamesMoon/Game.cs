@@ -121,14 +121,11 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        public bool EndGame()
+        public void EndGame()
         {
-           if(pPlayers[iPlayersTurn].Score => iPlayToScore)
+            if (pPlayers[iPlayersTurn].Score <= iPlayToScore)
             {
-                return true;
-            }else
-            {
-                return false;
+                bGameEnd =  true;
             }
         }
 
