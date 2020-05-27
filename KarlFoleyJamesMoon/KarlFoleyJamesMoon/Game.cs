@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,7 +51,32 @@ namespace KarlFoleyJamesMoon
             {
                 iPlayersTurn = 1;
             }
-        
+
+            //WIP Dice Check (proper implementation soon)
+            int newRule = 1; // stand in value (1)
+            switch (newRule)
+            {
+                case 1:
+                    gameRuleOne();
+                    break;
+                case 2:
+                    gameRuleTwo();
+                    break;
+                case 3:
+                    gameRuleThree();
+                    break;
+                case 4:
+                    gameRuleFour();
+                    break;
+                case 5:
+                    gameRuleFive();
+                    break;
+                case 6:
+                    gameRuleSix();
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void SwitchPlayer()
@@ -67,6 +92,7 @@ namespace KarlFoleyJamesMoon
         }
 
         public void SetDiceFace(int[] iDice) 
+        /*public void SetDiceFace(int[] iDice) 
         {
             dDiceSatitics = new Dice();
             foreach(int dice in iDice) 
@@ -94,6 +120,36 @@ namespace KarlFoleyJamesMoon
                 }
             }
         
+        }*/
+
+        private void gameRuleOne()
+        {
+            //Player score is unaltered
+        }
+
+        private void gameRuleTwo()
+        {
+            //Player score is reset to 0
+        }
+
+        private void gameRuleThree()
+        {
+            //Player immediatly loses (opponent wins)
+        }
+
+        private void gameRuleFour()
+        {
+            //Player immediatly wins (opponent loses)
+        }
+
+        private void gameRuleFive()
+        {
+            //Player's roll is doubled and added to score
+        }
+
+        private void gameRuleSix()
+        {
+            //Player's roll is added to score
         }
 
 
