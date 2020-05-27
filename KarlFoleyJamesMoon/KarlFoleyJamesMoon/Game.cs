@@ -11,7 +11,7 @@ namespace KarlFoleyJamesMoon
         private Player[] pPlayers = new Player[2];
         private Dice dDiceSatitics;
         private int iPlayToScore, iPlayersTurn;
-
+        private bool bGameEnd, bScoreReached;
 
         public Player[] Players
         {
@@ -37,6 +37,13 @@ namespace KarlFoleyJamesMoon
             }
         }
 
+        public bool GameEnded
+        {
+            get
+            {
+                return bGameEnd;
+            }
+        }
         public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore, bool bPlayerOrder) 
         {
             iPlayToScore = iSelectedScore;
@@ -88,6 +95,17 @@ namespace KarlFoleyJamesMoon
             else
             {
                 iPlayersTurn = 0;
+            }
+        }
+
+        public bool EndGame()
+        {
+           if(pPlayers[iPlayersTurn].Score => iPlayToScore)
+            {
+                return true;
+            }else
+            {
+                return false;
             }
         }
 
