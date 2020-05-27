@@ -59,3 +59,9 @@
 ### 26/5 6pm - 8pm - 10pm - 12am - James ###
 * Created number checker and sorter for FrmSixOfOne.cs
 * Started rule checker
+
+### 27/5 12pm - 2pm - 4pm - 6pm - 8pm - 10pm - James ##
+* Cleaned up cases inside of ScoreCheck()
+* Added ThreeOfAKind to Game.cs
+* Added rules data
+* Created Rules Form
