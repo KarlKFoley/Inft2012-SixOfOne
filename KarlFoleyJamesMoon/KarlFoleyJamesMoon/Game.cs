@@ -10,7 +10,6 @@ namespace KarlFoleyJamesMoon
     public class Game
     {
         private Player[] pPlayers = new Player[2];
-        private FrmSixOfOne game;
         private Dice dDiceSatitics;
         private int iPlayToScore, iPlayersTurn;
         private bool bGameEnd, bScoreReached;
@@ -79,6 +78,7 @@ namespace KarlFoleyJamesMoon
             for (int i = 0; i < iScoreOnDice.Length; i++)
             {
                 int result = iScoreOnDice[i];
+
                 switch (result)
                 {
                     case 1: dDiceSatitics.IncrementFaceOne(); break;
@@ -89,29 +89,41 @@ namespace KarlFoleyJamesMoon
                     case 6: dDiceSatitics.IncrementFaceSix(); break;
                     default: break;
                 }
+                Players[iPlayersTurn].Score += result; //Adds all dice to player score
             }
-            Players[iPlayersTurn].Score = 0;
         }
 
         public void GameRules()
         {
-            //WIP Dice Check (proper implementation soon)
-
-            switch (dDiceSatitics.iOne)
+            if (dDiceSatitics.iOne >= 1) //Check for any 1's
+                switch (dDiceSatitics.iOne) //Counts how many 1's
+                {
+                    case 1: GameRuleOne(); break;
+                    case 2: GameRuleTwo(); break;
+                    case 3: GameRuleThree(); break;
+                    case 4: GameRuleFour(); break;
+                    default: break;
+                }
+            if (ThreeOfAKind() == true) //Check for three of a kind
             {
-                case 1: gameRuleOne(); break;
-                case 2: gameRuleTwo(); break;
-                case 3: gameRuleThree(); break;
-                case 4: gameRuleFour(); break;
-                default: break;
+                pPlayers[iPlayersTurn].Score = pPlayers[iPlayersTurn].Score * 2;
             }
-            if (ThreeOfAKind() == true) { }
         }
 
         public bool ThreeOfAKind()
         {
-            
-            return true;
+            if (dDiceSatitics.iSix >= 3 ||
+                dDiceSatitics.ithree >= 3 ||
+                dDiceSatitics.iTwo >= 3 ||
+                dDiceSatitics.iFive >= 3 ||
+                dDiceSatitics.iFour >= 3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void SwitchPlayer()
@@ -134,67 +146,25 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        /*public void SetDiceFace(int[] iDice) 
-        {
-            dDiceSatitics = new Dice();
-            foreach(int dice in iDice) 
-            {
-                switch (dice)
-                {
-                    case 1:
-                        dDiceSatitics.IncrementFaceOne();
-                        break;
-                    case 2:
-                        dDiceSatitics.IncrementFaceTwo();
-                        break;
-                    case 3:
-                        dDiceSatitics.IncrementFaceThree();
-                        break;
-                    case 4:
-                        dDiceSatitics.IncrementFaceFour();
-                        break;
-                    case 5:
-                        dDiceSatitics.IncrementFaceFive();
-                        break;
-                    case 6:
-                        dDiceSatitics.IncrementFaceSix();
-                        break;
-                }
-            }
-        
-        }*/
-
-        private void gameRuleOne()
+        private void GameRuleOne()
         {
             //Player score is unaltered
         }
 
-        private void gameRuleTwo()
+        private void GameRuleTwo()
         {
             //Player score is reset to 0
+            pPlayers[iPlayersTurn].Score = 0;
         }
 
-        private void gameRuleThree()
+        private void GameRuleThree()
         {
             //Player immediatly loses (opponent wins)
         }
 
-        private void gameRuleFour()
+        private void GameRuleFour()
         {
             //Player immediatly wins (opponent loses)
         }
-
-        private void gameRuleFive()
-        {
-            //Player's roll is doubled and added to score
-        }
-
-        private void gameRuleSix()
-        {
-            //Player's roll is added to score
-        }
-
-
-    
     }
 }
