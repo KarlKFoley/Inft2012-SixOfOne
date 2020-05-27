@@ -67,6 +67,38 @@ namespace KarlFoleyJamesMoon
             gGame = new Game(pFirstPlayer, pSecondPlayer, iScore, firstPLayer);
         }
 
+        public bool GameHasEnded()
+        {
+            if(gGame.EndGame() && gGame.ScoreReached())
+            {
+                if (gGame.PlayerTurn == 0)
+                {
+                    playerOneWins();
+                }
+                else
+                {
+                    PlayerTwoWins();
+                }
+                return true;
+            }
+            else if(gGame.EndGame())
+            {
+                if (gGame.PlayerTurn == 0)
+                {
+                    PlayerTwoWins();
+                }
+                else
+                {
+                    playerOneWins();
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void playerOneWins()
         {
             iplayerOneWins++;

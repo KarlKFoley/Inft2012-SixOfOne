@@ -46,6 +46,14 @@ namespace KarlFoleyJamesMoon
                 return bGameEnd;
             }
         }
+
+        public bool ScoreReached
+        {
+            get
+            {
+                return bScoreReached;
+            }
+        }
         public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore, bool bPlayerOrder) 
         {
             iPlayToScore = iSelectedScore;
