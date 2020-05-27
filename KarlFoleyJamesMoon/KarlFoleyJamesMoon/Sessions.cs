@@ -69,7 +69,7 @@ namespace KarlFoleyJamesMoon
 
         public bool GameHasEnded()
         {
-            if(gGame.GameEnded && gGame.ScoreReached)
+            if(gGame.GameEnded && gGame.CurrentPlayerWins)
             {
                 if (gGame.PlayerTurn == 0)
                 {

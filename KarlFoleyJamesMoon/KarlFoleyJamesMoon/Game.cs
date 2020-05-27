@@ -12,7 +12,7 @@ namespace KarlFoleyJamesMoon
         private Player[] pPlayers = new Player[2];
         private Dice dDiceSatitics;
         private int iPlayToScore, iPlayersTurn;
-        private bool bGameEnd, bScoreReached;
+        private bool bGameEnd, bCurrentPlayerWins;
 
         public Player[] Players
         {
@@ -46,18 +46,18 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        public bool ScoreReached
+        public bool CurrentPlayerWins
         {
             get
             {
-                return bScoreReached;
+                return bCurrentPlayerWins;
             }
         }
         public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore, bool bPlayerOrder) 
         {
             iPlayToScore = iSelectedScore;
             bGameEnd = false;
-            bScoreReached = false;
+            bCurrentPlayerWins = false;
             dDiceSatitics = new Dice();
             pPlayers[0] = pNewPlayerOne;
             pPlayers[1] = pNewPlayerTwo;
@@ -73,12 +73,11 @@ namespace KarlFoleyJamesMoon
 
         public void CountScore(int[] iScoreOnDice)
         {
+            int result = 0;
             dDiceSatitics = new Dice();
             //Counts how many of each number is rolled
             for (int i = 0; i < iScoreOnDice.Length; i++)
             {
-                int result = iScoreOnDice[i];
-
                 switch (result)
                 {
                     case 1: dDiceSatitics.IncrementFaceOne(); break;
@@ -88,12 +87,14 @@ namespace KarlFoleyJamesMoon
                     case 5: dDiceSatitics.IncrementFaceFive(); break;
                     case 6: dDiceSatitics.IncrementFaceSix(); break;
                     default: break;
-                }
-                Players[iPlayersTurn].Score += result; //Adds all dice to player score
+                } //Adds all dice to player score
+                result += iScoreOnDice[i];
             }
+            GameRules(result);
+            Players[iPlayersTurn].Score += result;
         }
 
-        public void GameRules()
+        public void GameRules(int score)
         {
             if (dDiceSatitics.iOne >= 1) //Check for any 1's
                 switch (dDiceSatitics.iOne) //Counts how many 1's
@@ -106,7 +107,7 @@ namespace KarlFoleyJamesMoon
                 }
             if (ThreeOfAKind() == true) //Check for three of a kind
             {
-                pPlayers[iPlayersTurn].Score = pPlayers[iPlayersTurn].Score * 2;
+                pPlayers[iPlayersTurn].Score = score * 2;
             }
         }
 
@@ -140,10 +141,7 @@ namespace KarlFoleyJamesMoon
 
         public void EndGame()
         {
-            if (pPlayers[iPlayersTurn].Score <= iPlayToScore)
-            {
                 bGameEnd =  true;
-            }
         }
 
         private void GameRuleOne()
@@ -160,11 +158,14 @@ namespace KarlFoleyJamesMoon
         private void GameRuleThree()
         {
             //Player immediatly loses (opponent wins)
+            EndGame();
         }
 
         private void GameRuleFour()
         {
             //Player immediatly wins (opponent loses)
+            bCurrentPlayerWins = true;
+            EndGame();
         }
     }
 }
