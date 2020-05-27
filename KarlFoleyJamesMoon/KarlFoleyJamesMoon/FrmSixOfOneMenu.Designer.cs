@@ -41,6 +41,7 @@
             this.TbxRules = new System.Windows.Forms.TextBox();
             this.LblPlayToScore = new System.Windows.Forms.Label();
             this.TbxPlayToScore = new System.Windows.Forms.TextBox();
+            this.btnRules = new System.Windows.Forms.Button();
             this.GboxPlayers.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,11 +168,22 @@
             this.TbxPlayToScore.Size = new System.Drawing.Size(100, 20);
             this.TbxPlayToScore.TabIndex = 0;
             // 
+            // btnRules
+            // 
+            this.btnRules.Location = new System.Drawing.Point(316, 302);
+            this.btnRules.Name = "btnRules";
+            this.btnRules.Size = new System.Drawing.Size(75, 23);
+            this.btnRules.TabIndex = 10;
+            this.btnRules.Text = "Rules";
+            this.btnRules.UseVisualStyleBackColor = true;
+            this.btnRules.Click += new System.EventHandler(this.btnRules_Click);
+            // 
             // FrmSixOfOneMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 337);
+            this.Controls.Add(this.btnRules);
             this.Controls.Add(this.TbxPlayToScore);
             this.Controls.Add(this.LblPlayToScore);
             this.Controls.Add(this.TbxRules);
@@ -208,6 +220,7 @@
         private System.Windows.Forms.TextBox TbxRules;
         private System.Windows.Forms.Label LblPlayToScore;
         private System.Windows.Forms.TextBox TbxPlayToScore;
+        private System.Windows.Forms.Button btnRules;
     }
 }
 
