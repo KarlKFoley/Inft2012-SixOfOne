@@ -52,7 +52,7 @@ namespace KarlFoleyJamesMoon
             int iamountofDiceRolled = 0;
             if (sCurrentSession.ActiveAi && sCurrentSession.gCurrentGame.PlayerTurn == 1)
             {
-                iamountofDiceRolled = 0;
+                iamountofDiceRolled = 0; // this is where the AI turn is handled
             }
             else
             {
