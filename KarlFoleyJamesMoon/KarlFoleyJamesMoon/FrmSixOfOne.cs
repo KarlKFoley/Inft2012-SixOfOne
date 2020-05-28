@@ -49,23 +49,16 @@ namespace KarlFoleyJamesMoon
         {
             BtnRoll.Visible = false;
             BtnRoll.Refresh();
-            int iamountofDiceRolled = HowManyDiceRolled();
-            int[] iScoreOnDice = new int[iamountofDiceRolled];
-            Clear_Dice();
-            for (int iDiceRolls = 0; iDiceRolls < randNumber.Next(5, 8); iDiceRolls++)
+            int iamountofDiceRolled = 0;
+            if (sCurrentSession.ActiveAi && sCurrentSession.gCurrentGame.PlayerTurn == 1)
             {
-                for (int iDiceNumber = 0; iDiceNumber < iamountofDiceRolled; iDiceNumber++)
-                {
-                    int iDiceRoll = RollADice();
-                    arrayOfPictureBoxs[iDiceNumber].Visible = true;
-                    arrayOfPictureBoxs[iDiceNumber].Refresh();
-                    arrayOfGraphics[iDiceNumber].Clear(Color.Black);
-                    displayDice(iDiceNumber, iDiceRoll);
-                    System.Threading.Thread.Sleep(randNumber.Next(200, 400));
-                    iScoreOnDice[iDiceNumber] = iDiceRoll;
-                }
+                iamountofDiceRolled = 0;
             }
-            LblTurnOutcome.Text = sCurrentSession.gCurrentGame.CountScore(iScoreOnDice);
+            else
+            {
+                iamountofDiceRolled = HowManyDiceRolled();
+            }
+            LblTurnOutcome.Text = sCurrentSession.gCurrentGame.CountScore(RollDice(iamountofDiceRolled));
             LblScorePlayerOne.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[0].Score);
             LblScorePlayerTwo.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[1].Score);
             if (sCurrentSession.GameHasEnded())
@@ -84,6 +77,27 @@ namespace KarlFoleyJamesMoon
                 BtnRoll.Visible = false;
             }
             refresh();
+        }
+
+
+        private int[] RollDice(int iamountofDiceRolled)
+        {
+            int[] iScoreOnDice = new int[iamountofDiceRolled];
+            Clear_Dice();
+            for (int iDiceRolls = 0; iDiceRolls < randNumber.Next(5, 8); iDiceRolls++)
+            {
+                for (int iDiceNumber = 0; iDiceNumber < iamountofDiceRolled; iDiceNumber++)
+                {
+                    int iDiceRoll = RollADice();
+                    arrayOfPictureBoxs[iDiceNumber].Visible = true;
+                    arrayOfPictureBoxs[iDiceNumber].Refresh();
+                    arrayOfGraphics[iDiceNumber].Clear(Color.Black);
+                    displayDice(iDiceNumber, iDiceRoll);
+                    System.Threading.Thread.Sleep(randNumber.Next(200, 400));
+                    iScoreOnDice[iDiceNumber] = iDiceRoll;
+                }
+            }
+            return iScoreOnDice;
         }
 
         private void refresh()
