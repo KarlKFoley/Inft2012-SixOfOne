@@ -66,6 +66,7 @@
             // 
             // LblPlayerOneName
             // 
+            this.LblPlayerOneName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LblPlayerOneName.AutoSize = true;
             this.LblPlayerOneName.Location = new System.Drawing.Point(207, 9);
             this.LblPlayerOneName.Name = "LblPlayerOneName";
@@ -75,6 +76,7 @@
             // 
             // LblPlayerTwoName
             // 
+            this.LblPlayerTwoName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LblPlayerTwoName.AutoSize = true;
             this.LblPlayerTwoName.Location = new System.Drawing.Point(653, 9);
             this.LblPlayerTwoName.Name = "LblPlayerTwoName";
@@ -84,6 +86,7 @@
             // 
             // BtnRoll
             // 
+            this.BtnRoll.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnRoll.Location = new System.Drawing.Point(454, 163);
             this.BtnRoll.Name = "BtnRoll";
             this.BtnRoll.Size = new System.Drawing.Size(75, 23);
@@ -94,6 +97,7 @@
             // 
             // LblScorePlayerOne
             // 
+            this.LblScorePlayerOne.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LblScorePlayerOne.AutoSize = true;
             this.LblScorePlayerOne.Location = new System.Drawing.Point(272, 9);
             this.LblScorePlayerOne.Name = "LblScorePlayerOne";
@@ -103,6 +107,7 @@
             // 
             // LblScorePlayerTwo
             // 
+            this.LblScorePlayerTwo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LblScorePlayerTwo.AutoSize = true;
             this.LblScorePlayerTwo.Location = new System.Drawing.Point(719, 9);
             this.LblScorePlayerTwo.Name = "LblScorePlayerTwo";
@@ -213,8 +218,9 @@
             // 
             // pictBoxDiceOne
             // 
+            this.pictBoxDiceOne.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictBoxDiceOne.BackColor = System.Drawing.Color.Black;
-            this.pictBoxDiceOne.Location = new System.Drawing.Point(374, 205);
+            this.pictBoxDiceOne.Location = new System.Drawing.Point(374, 244);
             this.pictBoxDiceOne.Name = "pictBoxDiceOne";
             this.pictBoxDiceOne.Size = new System.Drawing.Size(100, 100);
             this.pictBoxDiceOne.TabIndex = 6;
@@ -223,8 +229,9 @@
             // 
             // pictBoxDiceTwo
             // 
+            this.pictBoxDiceTwo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictBoxDiceTwo.BackColor = System.Drawing.Color.Black;
-            this.pictBoxDiceTwo.Location = new System.Drawing.Point(554, 205);
+            this.pictBoxDiceTwo.Location = new System.Drawing.Point(554, 244);
             this.pictBoxDiceTwo.Name = "pictBoxDiceTwo";
             this.pictBoxDiceTwo.Size = new System.Drawing.Size(100, 100);
             this.pictBoxDiceTwo.TabIndex = 7;
@@ -233,8 +240,9 @@
             // 
             // pictBoxDiceThree
             // 
+            this.pictBoxDiceThree.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictBoxDiceThree.BackColor = System.Drawing.Color.Black;
-            this.pictBoxDiceThree.Location = new System.Drawing.Point(200, 205);
+            this.pictBoxDiceThree.Location = new System.Drawing.Point(200, 244);
             this.pictBoxDiceThree.Name = "pictBoxDiceThree";
             this.pictBoxDiceThree.Size = new System.Drawing.Size(100, 100);
             this.pictBoxDiceThree.TabIndex = 8;
@@ -243,8 +251,9 @@
             // 
             // pictBoxDiceFour
             // 
+            this.pictBoxDiceFour.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictBoxDiceFour.BackColor = System.Drawing.Color.Black;
-            this.pictBoxDiceFour.Location = new System.Drawing.Point(730, 205);
+            this.pictBoxDiceFour.Location = new System.Drawing.Point(730, 244);
             this.pictBoxDiceFour.Name = "pictBoxDiceFour";
             this.pictBoxDiceFour.Size = new System.Drawing.Size(100, 100);
             this.pictBoxDiceFour.TabIndex = 9;
@@ -253,8 +262,9 @@
             // 
             // pictBoxDiceFive
             // 
+            this.pictBoxDiceFive.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictBoxDiceFive.BackColor = System.Drawing.Color.Black;
-            this.pictBoxDiceFive.Location = new System.Drawing.Point(27, 205);
+            this.pictBoxDiceFive.Location = new System.Drawing.Point(27, 244);
             this.pictBoxDiceFive.Name = "pictBoxDiceFive";
             this.pictBoxDiceFive.Size = new System.Drawing.Size(100, 100);
             this.pictBoxDiceFive.TabIndex = 10;
@@ -263,8 +273,9 @@
             // 
             // pictBoxDiceSix
             // 
+            this.pictBoxDiceSix.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictBoxDiceSix.BackColor = System.Drawing.Color.Black;
-            this.pictBoxDiceSix.Location = new System.Drawing.Point(910, 205);
+            this.pictBoxDiceSix.Location = new System.Drawing.Point(910, 244);
             this.pictBoxDiceSix.Name = "pictBoxDiceSix";
             this.pictBoxDiceSix.Size = new System.Drawing.Size(100, 100);
             this.pictBoxDiceSix.TabIndex = 11;
@@ -273,6 +284,7 @@
             // 
             // lblScore
             // 
+            this.lblScore.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblScore.AutoSize = true;
             this.lblScore.Location = new System.Drawing.Point(435, 9);
             this.lblScore.Name = "lblScore";
@@ -282,6 +294,7 @@
             // 
             // lblPlayerTurn
             // 
+            this.lblPlayerTurn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPlayerTurn.AutoSize = true;
             this.lblPlayerTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerTurn.Location = new System.Drawing.Point(440, 131);
@@ -291,16 +304,18 @@
             // 
             // LblTurnOutcome
             // 
+            this.LblTurnOutcome.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LblTurnOutcome.AutoSize = true;
             this.LblTurnOutcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTurnOutcome.Location = new System.Drawing.Point(440, 339);
+            this.LblTurnOutcome.Location = new System.Drawing.Point(376, 475);
             this.LblTurnOutcome.Name = "LblTurnOutcome";
             this.LblTurnOutcome.Size = new System.Drawing.Size(0, 25);
             this.LblTurnOutcome.TabIndex = 15;
             // 
             // btnNewGame
             // 
-            this.btnNewGame.Location = new System.Drawing.Point(374, 447);
+            this.btnNewGame.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNewGame.Location = new System.Drawing.Point(374, 526);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(75, 23);
             this.btnNewGame.TabIndex = 16;
@@ -311,7 +326,8 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(554, 447);
+            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnExit.Location = new System.Drawing.Point(554, 526);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 17;
@@ -322,7 +338,8 @@
             // 
             // tbxNewScore
             // 
-            this.tbxNewScore.Location = new System.Drawing.Point(374, 421);
+            this.tbxNewScore.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbxNewScore.Location = new System.Drawing.Point(374, 500);
             this.tbxNewScore.Name = "tbxNewScore";
             this.tbxNewScore.Size = new System.Drawing.Size(75, 20);
             this.tbxNewScore.TabIndex = 18;
@@ -330,8 +347,9 @@
             // 
             // LblNewGame
             // 
+            this.LblNewGame.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LblNewGame.AutoSize = true;
-            this.LblNewGame.Location = new System.Drawing.Point(378, 387);
+            this.LblNewGame.Location = new System.Drawing.Point(378, 466);
             this.LblNewGame.Name = "LblNewGame";
             this.LblNewGame.Size = new System.Drawing.Size(60, 13);
             this.LblNewGame.TabIndex = 19;
@@ -340,8 +358,9 @@
             // 
             // lblNewScore
             // 
+            this.lblNewScore.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblNewScore.AutoSize = true;
-            this.lblNewScore.Location = new System.Drawing.Point(378, 405);
+            this.lblNewScore.Location = new System.Drawing.Point(378, 484);
             this.lblNewScore.Name = "lblNewScore";
             this.lblNewScore.Size = new System.Drawing.Size(60, 13);
             this.lblNewScore.TabIndex = 20;
@@ -352,7 +371,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1046, 482);
+            this.ClientSize = new System.Drawing.Size(1046, 561);
             this.Controls.Add(this.lblNewScore);
             this.Controls.Add(this.LblNewGame);
             this.Controls.Add(this.tbxNewScore);
