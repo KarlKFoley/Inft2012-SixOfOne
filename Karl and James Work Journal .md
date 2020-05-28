@@ -60,8 +60,13 @@
 * Created number checker and sorter for FrmSixOfOne.cs
 * Started rule checker
 
-### 27/5 12pm - 2pm - 4pm - 6pm - 8pm - 10pm - James ##
+### 27/5 12pm - 2pm - 4pm - 6pm - 8pm - 10pm - James ###
 * Cleaned up cases inside of ScoreCheck()
 * Added ThreeOfAKind to Game.cs
 * Added rules data
 * Created Rules Form
+
+### 28/5 4pm - James ###
+* Finished section 13
+    * Originally intended to change the AI dice count based off the percentage difference between the player and the AI. 
+    * However, I was unable to find the right bit of code online or in the notes to run inside the game. As a result, the AI simple bases its amount of dice based on if they are ahead (rolling 2-3 dice) or behind (rolling 3-6). This satisfies the bot's means of either playing it safe while winning, or making riskier moves if the bot is losing.
