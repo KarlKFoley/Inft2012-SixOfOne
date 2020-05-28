@@ -88,7 +88,6 @@ namespace KarlFoleyJamesMoon
                     case 4: dDiceSatitics.IncrementFaceFour(); break;
                     case 5: dDiceSatitics.IncrementFaceFive(); break;
                     case 6: dDiceSatitics.IncrementFaceSix(); break;
-                    default: break;
                 }
                 result += iScoreOnDice[i];
             }
@@ -184,7 +183,7 @@ namespace KarlFoleyJamesMoon
         {
             //Player immediatly loses (opponent wins)
             EndGame();
-            return Players[iPlayersTurn].name + ", you rolled three one's.\n You Loose.";
+            return Players[iPlayersTurn].name + ", you rolled Three one's.\n You Loose.";
         }
 
         private string GameRuleFour()
@@ -192,7 +191,7 @@ namespace KarlFoleyJamesMoon
             //Player immediatly wins (opponent loses)
             bCurrentPlayerWins = true;
             EndGame();
-            return Players[iPlayersTurn].name + ", you rolled Three one's.\n You Win.";
+            return Players[iPlayersTurn].name + ", you rolled Four one's.\n You Win.";
         }
     }
 }

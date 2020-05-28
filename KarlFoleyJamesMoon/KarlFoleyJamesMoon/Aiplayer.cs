@@ -65,20 +65,20 @@ namespace KarlFoleyJamesMoon
 				roll = rnd.Next(2, 4);
 			}
 			string message = RollResponce(roll);
-			return (roll, message);
+			return roll;
 		}
 
 		private string RollResponce(int roll)
         {
-			string botReply;
+			string botReply = "I hope this is a good roll!";
 			switch(roll)
             {
-				case 1: botReply = "'Perhaps its best to play it safe and role 1'";
-				case 2: botReply = "'I'm not liking my chances, lets just role 2'";
-				case 3: botReply = "'Lets try rolling 3 dice'";
-				case 4: botReply = "'Four should get me where I need to go'";
-				case 5: botReply = "'Better try rolling five for a dash to the finish'";
-				case 6: botReply = "'Its risky, but I need to roll 6 to catch up'";
+				case 1: botReply = "'Perhaps its best to play it safe and role 1'"; break;
+				case 2: botReply = "'I'm not liking my chances, lets just role 2'"; break;
+				case 3: botReply = "'Lets try rolling 3 dice'"; break;
+				case 4: botReply = "'Four should get me where I need to go'"; break;
+				case 5: botReply = "'Better try rolling five for a dash to the finish'"; break;
+				case 6: botReply = "'Its risky, but I need to roll 6 to catch up'"; break;
 			}
 			return botReply;
         }
