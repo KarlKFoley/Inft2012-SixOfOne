@@ -65,19 +65,19 @@ namespace KarlFoleyJamesMoon
         }
 
         #endregion
-        public Sessions(string sPlayerName, string sPlayerTwoName, int iScore,bool firstPLayer)
+        public Sessions(string sPlayerName, string sPlayerTwoName, int iScore)
         {
             bActiveAi = false;
             iplayerOneWins = 0;
             iplayerTwoWins = 0;
             pFirstPlayer = new Player(sPlayerName);
             pSecondPlayer = new Player(sPlayerTwoName);
-            gGame = new Game(pFirstPlayer, pSecondPlayer, iScore, firstPLayer);
+            gGame = new Game(pFirstPlayer, pSecondPlayer, iScore);
         }
 
         public void restartGame(int iScore, bool firstPLayer)
         {
-            gGame = new Game(pFirstPlayer, pSecondPlayer, iScore, firstPLayer);
+            gGame = new Game(pFirstPlayer, pSecondPlayer, iScore);
         }
 
         public bool GameHasEnded()

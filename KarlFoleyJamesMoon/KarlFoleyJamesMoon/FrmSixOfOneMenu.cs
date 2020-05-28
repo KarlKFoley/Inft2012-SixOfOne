@@ -70,14 +70,7 @@ namespace KarlFoleyJamesMoon
             {
                 iScore = 50;
             }
-            //to handle creating AI once created
-            if (RadButPlayerTwo.Checked) 
-            {
-            }
-            else
-            {
-            }
-            gameSession = new Sessions(sOneName, sTwoName, iScore, true);
+            gameSession = new Sessions(sOneName, sTwoName, iScore);
             FrmSixOfOne SixOfOne = new FrmSixOfOne(gameSession);
             SixOfOne.ShowDialog();
 

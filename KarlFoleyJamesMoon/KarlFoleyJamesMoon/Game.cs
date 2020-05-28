@@ -13,6 +13,7 @@ namespace KarlFoleyJamesMoon
         private Dice dDiceSatitics;
         private int iPlayToScore, iPlayersTurn;
         private bool bGameEnd, bCurrentPlayerWins;
+        private Random randNumber = new Random();
 
         public Player[] Players
         {
@@ -53,15 +54,16 @@ namespace KarlFoleyJamesMoon
                 return bCurrentPlayerWins;
             }
         }
-        public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore, bool bPlayerOrder) 
+        public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore) 
         {
+            int iPlayertrunNumber = randNumber.Next(0,1);
             iPlayToScore = iSelectedScore;
             bGameEnd = false;
             bCurrentPlayerWins = false;
             dDiceSatitics = new Dice();
             pPlayers[0] = pNewPlayerOne;
             pPlayers[1] = pNewPlayerTwo;
-            if (bPlayerOrder)
+            if (iPlayertrunNumber==0)
             {
                 iPlayersTurn = 0;
             }
@@ -110,13 +112,13 @@ namespace KarlFoleyJamesMoon
             {
                 pPlayers[iPlayersTurn].Score = score * 2;
                 returnmessage = Players[iPlayersTurn].name + ", you scored double Points \nbecuase you rolled three of a kind!\n You Scored " + score * 2 + " this turn.";
-                ScoreReached();
+                returnmessage+=ScoreReached();
             }
             else
             {
                 returnmessage = Players[iPlayersTurn].name + ", you scored " + score + " this turn.";
                 pPlayers[iPlayersTurn].Score = score;
-                ScoreReached();
+                returnmessage += ScoreReached();
             }
             return returnmessage;
         }
@@ -149,13 +151,15 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        public void ScoreReached()
+        public string ScoreReached()
         {
             if(Players[PlayerTurn].Score >= iPlayToScore)
             {
                 bCurrentPlayerWins = true;
                 EndGame();
+                return "\nYou Reached " + Convert.ToString(iPlayToScore) + "You Win!";
             }
+            return "";
         }
 
         public void EndGame()
