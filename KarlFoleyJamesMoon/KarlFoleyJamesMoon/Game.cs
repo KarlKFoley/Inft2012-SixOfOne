@@ -15,7 +15,7 @@ namespace KarlFoleyJamesMoon
         private bool bGameEnd, bCurrentPlayerWins;
         private Random randNumber = new Random();
 
-        public Player[] Players
+        public Player[] Players // When called, returns array of players
         {
             get
             {
@@ -23,7 +23,7 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        public int PlayToScore
+        public int PlayToScore // When called, returns current score set for session
         {
             get
             {
@@ -31,7 +31,7 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        public int PlayerTurn
+        public int PlayerTurn // When called, checks player turn number
         {
             get
             {
@@ -39,7 +39,7 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        public bool GameEnded
+        public bool GameEnded // When called, checks if game has ended
         {
             get
             {
@@ -47,23 +47,23 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        public bool CurrentPlayerWins
+        public bool CurrentPlayerWins // When called, checks the current player't total wins
         {
             get
             {
                 return bCurrentPlayerWins;
             }
         }
-        public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore) 
+        public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore) // Calls a new game inside the session
         {
-            int iPlayertrunNumber = randNumber.Next(0,1);
+            int iPlayertrunNumber = randNumber.Next(0,1); // Upon game start, decides who goes first
             iPlayToScore = iSelectedScore;
-            bGameEnd = false;
-            bCurrentPlayerWins = false;
-            dDiceSatitics = new Dice();
-            pPlayers[0] = pNewPlayerOne;
-            pPlayers[1] = pNewPlayerTwo;
-            if (iPlayertrunNumber==0)
+            bGameEnd = false; // Resets endgame conditions
+            bCurrentPlayerWins = false; // Resets win conditions
+            dDiceSatitics = new Dice(); // Creates new dice object
+            pPlayers[0] = pNewPlayerOne; // Creates new Player 1 variable
+            pPlayers[1] = pNewPlayerTwo; // Creates new Player 2 variable
+            if (iPlayertrunNumber==0) // Used to check whose turn it is
             {
                 iPlayersTurn = 0;
             }
@@ -73,43 +73,41 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        public string CountScore(int[] iScoreOnDice)
+        public string CountScore(int[] iScoreOnDice) // Takes in the random dice rolls, and stores variables inside Dice.cs
         {
             int result = 0;
-            dDiceSatitics = new Dice();
-            //Counts how many of each number is rolled
-            for (int i = 0; i < iScoreOnDice.Length; i++)
+            dDiceSatitics = new Dice(); // Defines a new Dice() to store values in
+            for (int i = 0; i < iScoreOnDice.Length; i++) //Loops for each dice in the iScoreOnDice array
             {
                 switch (iScoreOnDice[i])
                 {
-                    case 1: dDiceSatitics.IncrementFaceOne(); break;
-                    case 2: dDiceSatitics.IncrementFaceTwo(); break;
-                    case 3: dDiceSatitics.IncrementFaceThree(); break;
-                    case 4: dDiceSatitics.IncrementFaceFour(); break;
-                    case 5: dDiceSatitics.IncrementFaceFive(); break;
-                    case 6: dDiceSatitics.IncrementFaceSix(); break;
+                    case 1: dDiceSatitics.IncrementFaceOne(); break; // Increases number of ones by 1
+                    case 2: dDiceSatitics.IncrementFaceTwo(); break; // Increases number of twos by 1
+                    case 3: dDiceSatitics.IncrementFaceThree(); break; // Increases number of threes by 1
+                    case 4: dDiceSatitics.IncrementFaceFour(); break; // Increases number of fours by 1
+                    case 5: dDiceSatitics.IncrementFaceFive(); break; // Increases number of fives by 1
+                    case 6: dDiceSatitics.IncrementFaceSix(); break; // Increases number of sixes by 1
                 }
-                result += iScoreOnDice[i];
+                result += iScoreOnDice[i]; // each loop adds the current case value to result
             }
-            return GameRules(result);
+            return GameRules(result); // Returns result of all dice added together
         }
 
-        public string GameRules(int score)
+        public string GameRules(int score) // Checks and alters the score based on what was rolled this turn
         {
-            string returnmessage;
+            string returnmessage = "";
             if (dDiceSatitics.iOne >= 1) //Check for any 1's
             {
                 switch (dDiceSatitics.iOne) //Counts how many 1's
                 {
-                    case 1: returnmessage = GameRuleOne(); break;
-                    case 2: returnmessage =  GameRuleTwo(); break;
-                    case 3: returnmessage =  GameRuleThree(); break;
-                    case 4: returnmessage = GameRuleFour(); break;
-                    default: returnmessage = ""; break;
+                    case 1: returnmessage = GameRuleOne(); break; // Checks to see if there was one 1
+                    case 2: returnmessage =  GameRuleTwo(); break; // Checks to see if there was two 1's
+                    case 3: returnmessage =  GameRuleThree(); break; // Checks to see if there was three 1's
+                    case 4: returnmessage = GameRuleFour(); break; // Checks to see if there was four 1's
                 }
             }else if (ThreeOfAKind()) //Check for three of a kind
             {
-                pPlayers[iPlayersTurn].Score = score * 2;
+                pPlayers[iPlayersTurn].Score = score * 2; // Doubles score if three of a kind detected
                 returnmessage = Players[iPlayersTurn].name + ", you scored double Points \nbecuase you rolled three of a kind!\n You Scored " + score * 2 + " this turn.";
                 returnmessage+=ScoreReached();
             }
@@ -122,13 +120,13 @@ namespace KarlFoleyJamesMoon
             return returnmessage;
         }
 
-        public bool ThreeOfAKind()
+        public bool ThreeOfAKind() // Checks if there is any three of a kind in dice roll, returns true or false
         {
             if (dDiceSatitics.iSix >= 3 ||
                 dDiceSatitics.ithree >= 3 ||
                 dDiceSatitics.iTwo >= 3 ||
                 dDiceSatitics.iFive >= 3 ||
-                dDiceSatitics.iFour >= 3)
+                dDiceSatitics.iFour >= 3) // If three or more of any kind
             {
                 return true;
             }
@@ -138,7 +136,7 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        public void SwitchPlayer()
+        public void SwitchPlayer() // Switches player turn when called
         {
             if(iPlayersTurn == 0)
             {
@@ -150,43 +148,43 @@ namespace KarlFoleyJamesMoon
             }
         }
 
-        public string ScoreReached()
+        public string ScoreReached() // Checks to see if game score has been met
         {
             if(Players[PlayerTurn].Score >= iPlayToScore)
             {
-                bCurrentPlayerWins = true;
-                EndGame();
+                bCurrentPlayerWins = true; // Sets win status to true
+                EndGame(); // Trigger end of game
                 return "\nYou Reached " + Convert.ToString(iPlayToScore) + "You Win!";
             }
-            return "";
+            return ""; // If no change, return nothing
         }
 
-        public void EndGame()
+        public void EndGame() // Change end of game variable read by external methods
         {
-                bGameEnd =  true;
+                bGameEnd =  true; 
         }
 
-        private string GameRuleOne()
+        private string GameRuleOne() // If triggered, runs rule 1 which changes player/AI roll to 0
         {
             //Player score is unaltered
             return  Players[iPlayersTurn].name +", you rolled a single one.\n You scored 0 Points this turn.";
         }
 
-        private string GameRuleTwo()
+        private string GameRuleTwo() // If triggered, runs rull 2 which resets players/AIs total score to 0
         {
             //Player score is reset to 0
             pPlayers[iPlayersTurn].Score = 0;
             return Players[iPlayersTurn].name + ", you rolled snake eyes.\n Your total score is now 0.";
         }
 
-        private string GameRuleThree()
+        private string GameRuleThree() // If triggered, runs rule 3 in which the current turn is forfeit and the opponenet wins
         {
             //Player immediatly loses (opponent wins)
             EndGame();
             return Players[iPlayersTurn].name + ", you rolled Three one's.\n You Loose.";
         }
 
-        private string GameRuleFour()
+        private string GameRuleFour() //If triggered, runs rule 4 in which the current turn is declared successful and turn user wins
         {
             //Player immediatly wins (opponent loses)
             bCurrentPlayerWins = true;
