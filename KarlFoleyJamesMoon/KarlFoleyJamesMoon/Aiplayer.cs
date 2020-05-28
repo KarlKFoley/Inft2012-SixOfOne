@@ -19,7 +19,7 @@ namespace KarlFoleyJamesMoon
 
 		public int CheckPlayerScore()
 		{
-			int roll = 0;
+			int roll = 4;
 			/* if (pPlayers[1].Score == 0) {
 				roll = 4;
 			}
@@ -50,9 +50,9 @@ namespace KarlFoleyJamesMoon
 				roll = roll + 1;
 			}
 			return (roll); */
-			if (pPlayers[1].Score >= pPlayers[2].Score)
+			if (pPlayers[1].Score > pPlayers[2].Score)
 			{
-				roll = rnd.Next(4,7);
+				roll = rnd.Next(3,7);
 			}
 			if (pPlayers[1].Score < pPlayers[2].Score) {
 				roll = rnd.Next(2,4);
