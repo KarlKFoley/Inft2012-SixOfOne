@@ -16,7 +16,7 @@ namespace KarlFoleyJamesMoon
 			return "";
 		}
 
-		public int CheckPlayerScore(int p1score, int p2score)
+		public int CheckPlayerScore(int p1score, int p2score, int goal)
 		{
 			int roll = 4;
 			/* if (pPlayers[1].Score == 0) {
@@ -49,27 +49,36 @@ namespace KarlFoleyJamesMoon
 				roll = roll + 1;
 			}
 			return (roll); */
-			if (p1score > p2score)
+			if (p1score > (goal - 6))
+            {
+				roll = 6;
+            }
+			else if (p2score > (goal - 10))
+            {
+				roll = 1;
+            }
+			else if (p1score > p2score)
 			{
 				roll = rnd.Next(3, 7);
 			}
-			if (p1score < p1score) {
+			else if (p1score < p2score) {
 				roll = rnd.Next(2, 4);
 			}
-			string message = OnCall(roll);
+			string message = RollResponce(roll);
 			return (roll, message);
 		}
 
-		private string OnCall(int roll)
+		private string RollResponce(int roll)
         {
 			string botReply;
 			switch(roll)
             {
-				case 2: botReply = "";
-				case 3: botReply = "";
-				case 4: botReply = "";
-				case 5: botReply = "";
-				case 6: botReply = "";
+				case 1: botReply = "'Perhaps its best to play it safe and role 1'";
+				case 2: botReply = "'I'm not liking my chances, lets just role 2'";
+				case 3: botReply = "'Lets try rolling 3 dice'";
+				case 4: botReply = "'Four should get me where I need to go'";
+				case 5: botReply = "'Better try rolling five for a dash to the finish'";
+				case 6: botReply = "'Its risky, but I need to roll 6 to catch up'";
 			}
 			return botReply;
         }
