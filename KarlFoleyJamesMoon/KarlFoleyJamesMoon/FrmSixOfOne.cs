@@ -47,6 +47,8 @@ namespace KarlFoleyJamesMoon
 
         private void BtnRoll_Click(object sender, EventArgs e)
         {
+            BtnRoll.Visible = false;
+            BtnRoll.Refresh();
             int iamountofDiceRolled = HowManyDiceRolled();
             int[] iScoreOnDice = new int[iamountofDiceRolled];
             Clear_Dice();
@@ -63,7 +65,6 @@ namespace KarlFoleyJamesMoon
                     iScoreOnDice[iDiceNumber] = iDiceRoll;
                 }
             }
-            //iScoreOnDice = new int[] { 1, 1, 1, 1, 1, 1 };
             LblTurnOutcome.Text = sCurrentSession.gCurrentGame.CountScore(iScoreOnDice);
             LblScorePlayerOne.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[0].Score);
             LblScorePlayerTwo.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[1].Score);
@@ -80,6 +81,7 @@ namespace KarlFoleyJamesMoon
             {
                 sCurrentSession.gCurrentGame.SwitchPlayer();
                 lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + "'s Turn";
+                BtnRoll.Visible = false;
             }
             refresh();
         }

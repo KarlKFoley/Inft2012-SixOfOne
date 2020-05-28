@@ -55,6 +55,7 @@
             this.tbxNewScore = new System.Windows.Forms.TextBox();
             this.LblNewGame = new System.Windows.Forms.Label();
             this.lblNewScore = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceTwo)).BeginInit();
@@ -367,11 +368,21 @@
             this.lblNewScore.Text = "New Score";
             this.lblNewScore.Visible = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.Location = new System.Drawing.Point(12, 466);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 21;
+            // 
             // FrmSixOfOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 561);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblNewScore);
             this.Controls.Add(this.LblNewGame);
             this.Controls.Add(this.tbxNewScore);
@@ -436,5 +447,6 @@
         private System.Windows.Forms.TextBox tbxNewScore;
         private System.Windows.Forms.Label LblNewGame;
         private System.Windows.Forms.Label lblNewScore;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
