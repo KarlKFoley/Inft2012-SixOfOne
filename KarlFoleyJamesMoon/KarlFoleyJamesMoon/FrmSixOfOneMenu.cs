@@ -46,6 +46,7 @@ namespace KarlFoleyJamesMoon
 
         private void BtnPlay_Click(object sender, EventArgs e)
         {
+            bool bActivateTheAI = false;
             try
             {
                 sOneName = TbxPlayerOne.Text;
@@ -53,15 +54,22 @@ namespace KarlFoleyJamesMoon
             {
                 sOneName = "Player One";
             }
-            try
+            if (RadButPlayersOne.Checked) 
             {
-                sTwoName = TbxPlayerTwo.Text;
+                bActivateTheAI = true;
+                sTwoName = "MacWin";
             }
-            catch
+            else
             {
-                sTwoName = "Player Two";
+                try
+                {
+                    sTwoName = TbxPlayerTwo.Text;
+                }
+                catch
+                {
+                    sTwoName = "Player Two";
+                }
             }
-
             try
             {
                 iScore = Convert.ToInt32(TbxPlayToScore.Text);
@@ -70,7 +78,7 @@ namespace KarlFoleyJamesMoon
             {
                 iScore = 50;
             }
-            gameSession = new Sessions(sOneName, sTwoName, iScore);
+            gameSession = new Sessions(sOneName, sTwoName, iScore, bActivateTheAI);
             FrmSixOfOne SixOfOne = new FrmSixOfOne(gameSession);
             SixOfOne.ShowDialog();
 

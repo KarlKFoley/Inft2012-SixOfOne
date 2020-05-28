@@ -6,17 +6,21 @@ using System.Threading.Tasks;
 
 namespace KarlFoleyJamesMoon
 {
-	class Aiplayer : Player
+	public class Aiplayer : Player
 	{
 		private Random rnd;
-		Aiplayer() { }
+		public Aiplayer(string pSecondPlayer) 
+		{
+			name = pSecondPlayer;
+			Score = 0;
+		}
 
 		public String AiTurn(Game CurrentGame)
 		{
 			return "";
 		}
 
-		public int CheckPlayerScore(int p1score, int p2score, int goal)
+		public int CheckPlayerScore(int p1score, int goal)
 		{
 			int roll = 4;
 			/* if (pPlayers[1].Score == 0) {
@@ -53,15 +57,15 @@ namespace KarlFoleyJamesMoon
             {
 				roll = 6;
             }
-			else if (p2score > (goal - 10))
+			else if (Score > (goal - 10))
             {
 				roll = 1;
             }
-			else if (p1score > p2score)
+			else if (p1score > Score)
 			{
 				roll = rnd.Next(3, 7);
 			}
-			else if (p1score < p2score) {
+			else if (p1score < Score) {
 				roll = rnd.Next(2, 4);
 			}
 			string message = RollResponce(roll);

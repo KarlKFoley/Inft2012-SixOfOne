@@ -52,7 +52,10 @@ namespace KarlFoleyJamesMoon
             int iamountofDiceRolled = 0;
             if (sCurrentSession.ActiveAi && sCurrentSession.gCurrentGame.PlayerTurn == 1)
             {
-                iamountofDiceRolled = 0; // this is where the AI turn is handled
+                //iamountofDiceRolled = sCurrentSession.gCurrentGame.Players[1].CheckPlayerScore( p1score, goal); // this is where the AI turn is handled
+                //string AiMessage = sCurrentSession.gCurrentGame.Players[1].RollResponce(iamountofDiceRolled);
+                //MessageBox.Show(AiMessage);
+                System.Threading.Thread.Sleep(5000);
             }
             else
             {
