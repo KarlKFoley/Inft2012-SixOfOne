@@ -19,36 +19,6 @@ namespace KarlFoleyJamesMoon
 		public int CheckPlayerScore(int p1score, int p2score, int goal)
 		{
 			int roll = 4;
-			/* if (pPlayers[1].Score == 0) {
-				roll = 4;
-			}
-			if (pPlayers[1].Score <= 100 % pPlayers[2].Score) {
-				if (pPlayers[1].Score < 50 % pPlayers[2].Score) {
-					roll = 4;
-				}
-				else 
-				{
-					roll = 5;
-				}
-			}
-			if (pPlayers[1].Score > 50 % pPlayers[2].Score) {
-				if (pPlayers[1].Score > 100 % pPlayers[2].Score) {
-					if (pPlayers[1].Score >= 500 % pPlayers[2].Score) {
-						roll = 1;
-					}
-					else 
-					{
-						roll = 2;
-					}
-				}
-				else {
-					roll = 3;
-				}
-			}
-			if (pPlayers[1].Score > 50 % score) {
-				roll = roll + 1;
-			}
-			return (roll); */
 			if (p1score > (goal - 6))
             {
 				roll = 6;
@@ -64,7 +34,6 @@ namespace KarlFoleyJamesMoon
 			else if (p1score < p2score) {
 				roll = rnd.Next(2, 4);
 			}
-			string message = RollResponce(roll);
 			return roll;
 		}
 
