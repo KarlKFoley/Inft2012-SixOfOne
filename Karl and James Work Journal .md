@@ -51,7 +51,6 @@
    * Choose a roll button allowing player to change mind before the rolling of the dice. This better simulates what happens in real world. Allows for hesitation of the roll.
    * Moved dice displaying to its own method.
    * Moved Rolling dice to its own method.
-  
 
 ### 25/5 4pm -7pm - Karl ###
 * Created Dice Class to handle counting the number a particular number is rolled
@@ -60,8 +59,6 @@
 * Created Session class to handle the all games while just two player or one player is playing
     * This class was created so that overall variables where able to be handled with out being deleted over and over
     * Also made the code easier to read once we had a class tried approach to the project
-
-
 
 ### 25/5 10pm - James ###
 * Attempted variable carry over from Menu to game
