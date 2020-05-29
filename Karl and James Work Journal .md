@@ -70,3 +70,8 @@
 * Finished section 13
     * Originally intended to change the AI dice count based off the percentage difference between the player and the AI. 
     * However, I was unable to find the right bit of code online or in the notes to run inside the game. As a result, the AI simple bases its amount of dice based on if they are ahead (rolling 2-3 dice) or behind (rolling 3-6). This satisfies the bot's means of either playing it safe while winning, or making riskier moves if the bot is losing.
+
+### 29/5 2pm-4pm - James ###
+* Bug Fixes
+    * Fixed tbxTotalWins to have each score of a different line (\r\n rather than \n).
+    * Made it so that if its the AI's turn, the button remains hidden.
