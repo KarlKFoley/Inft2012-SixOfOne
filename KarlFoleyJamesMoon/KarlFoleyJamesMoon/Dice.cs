@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace KarlFoleyJamesMoon
 {
+    // Karl Foley and James Moon, May 2020
+    // Dice class used to count the amount of dice rolled
     class Dice
     {
         private int iFaceone, iFaceTwo, iFacethree, iFaceFour, iFaceFive, iFaceSix;
-        
+
+        #region Public properties
+        //Only readable properties
+        //Setting them is done though a incrmentor methord or in constructor.
         public int iOne
         {
             get
@@ -52,6 +58,8 @@ namespace KarlFoleyJamesMoon
                 return iFaceSix;
             }
         }
+        #endregion
+        #region Constructor
         public Dice()
         {
             iFaceone = 0;
@@ -61,7 +69,8 @@ namespace KarlFoleyJamesMoon
             iFaceFive = 0;
             iFaceSix = 0;
         }
-
+        #endregion
+        #region Increment methods for each varible
         public void IncrementFaceOne()
         {
             iFaceone++;
@@ -87,5 +96,6 @@ namespace KarlFoleyJamesMoon
         {
             iFaceSix ++;
         }
+        #endregion
     }
 }

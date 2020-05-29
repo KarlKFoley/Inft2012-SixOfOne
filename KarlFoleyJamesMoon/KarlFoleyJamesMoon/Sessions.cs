@@ -17,9 +17,10 @@ namespace KarlFoleyJamesMoon
         private int iplayerOneWins, iplayerTwoWins;
         private bool bActiveAi;
 
+
+        #region Public properties
         // These are public assessable variables but once set unable to be changed once session has been created.
         //All Read Only variables
-        #region Public properties
         public Player playerOne
         {
             get
@@ -91,7 +92,8 @@ namespace KarlFoleyJamesMoon
 
         #region Other methods
 
-        
+        // Used to reset the game once the session is already started.
+        // Creats a new game over the top of the old game
         public void restartGame(int iScore, bool firstPLayer)
         {
             gGame = new Game(pFirstPlayer, pSecondPlayer, iScore);

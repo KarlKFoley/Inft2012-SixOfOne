@@ -50,42 +50,25 @@ namespace KarlFoleyJamesMoon
         {
             BtnRoll.Visible = false;
             BtnRoll.Refresh();
-            int iamountofDiceRolled = 0;
+            RollDice(HowManyDiceRolled());
             if (sCurrentSession.ActiveAi && sCurrentSession.gCurrentGame.PlayerTurn == 1)
             {
-                iamountofDiceRolled = sCurrentSession.gCurrentGame.Players[1].CheckPlayerScore(sCurrentSession.gCurrentGame.Players[1].Score, sCurrentSession.gCurrentGame.PlayToScore); // this is where the AI turn is handled
-                string AiMessage = sCurrentSession.gCurrentGame.Players[1].RollResponce(iamountofDiceRolled);
-                MessageBox.Show(AiMessage);
-                System.Threading.Thread.Sleep(5000);
+                AIturn();
             }
-            else
-            {
-                iamountofDiceRolled = HowManyDiceRolled();
-            }
-            LblTurnOutcome.Text = sCurrentSession.gCurrentGame.CountScore(RollDice(iamountofDiceRolled));
-            LblScorePlayerOne.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[0].Score);
-            LblScorePlayerTwo.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[1].Score);
-            if (sCurrentSession.GameHasEnded())
-            {
-                UpdateTotalWinsTextBox();
-                BtnRoll.Visible = false;
-                lblNewScore.Visible = true;
-                LblNewGame.Visible = true;
-                tbxNewScore.Visible = true;
-                btnExit.Visible = true;
-                btnNewGame.Visible = true;
-            }
-            else
-            {
-                sCurrentSession.gCurrentGame.SwitchPlayer();
-                lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + "'s Turn";
-                BtnRoll.Visible = false;
-            }
-            refresh();
+        }
+
+        private void AIturn()
+        {
+            int iamountofDiceRolled = sCurrentSession.gCurrentGame.Players[1].CheckPlayerScore(sCurrentSession.gCurrentGame.Players[1].Score, sCurrentSession.gCurrentGame.PlayToScore); // this is where the AI turn is handled
+            string AiMessage = sCurrentSession.gCurrentGame.Players[1].RollResponce(iamountofDiceRolled);
+            System.Threading.Thread.Sleep(3000);
+            MessageBox.Show(AiMessage);
+            System.Threading.Thread.Sleep(2000);
+            RollDice(iamountofDiceRolled);
         }
 
 
-        private int[] RollDice(int iamountofDiceRolled)
+        private void  RollDice(int iamountofDiceRolled)
         {
             int[] iScoreOnDice = new int[iamountofDiceRolled];
             Clear_Dice();
@@ -102,7 +85,26 @@ namespace KarlFoleyJamesMoon
                     iScoreOnDice[iDiceNumber] = iDiceRoll;
                 }
             }
-            return iScoreOnDice;
+            LblTurnOutcome.Text = sCurrentSession.gCurrentGame.CountScore(iScoreOnDice);
+            LblScorePlayerOne.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[0].Score);
+            LblScorePlayerTwo.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[1].Score);
+            if (sCurrentSession.GameHasEnded())
+            {
+                UpdateTotalWinsTextBox();
+                BtnRoll.Visible = false;
+                lblNewScore.Visible = true;
+                LblNewGame.Visible = true;
+                tbxNewScore.Visible = true;
+                btnExit.Visible = true;
+                btnNewGame.Visible = true;
+            }
+            else
+            {
+                sCurrentSession.gCurrentGame.SwitchPlayer();
+                lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + "'s Turn";
+                BtnRoll.Visible = true;
+            }
+            refresh();
         }
 
         private void refresh()

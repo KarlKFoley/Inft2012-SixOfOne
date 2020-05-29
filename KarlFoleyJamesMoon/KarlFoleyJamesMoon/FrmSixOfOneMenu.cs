@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace KarlFoleyJamesMoon
-{
+{    // Karl Foley and James Moon, May 2020
+    // Handling basic game setup and allows user to open rules before start of the game
     public partial class FrmSixOfOneMenu : Form
     {
         private String sOneName, sTwoName;
@@ -34,11 +35,13 @@ namespace KarlFoleyJamesMoon
 
         }
 
+        //Button to close the application
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //Button to open the rules form
         private void btnRules_Click(object sender, EventArgs e)
         {
             Rules.ShowDialog();
