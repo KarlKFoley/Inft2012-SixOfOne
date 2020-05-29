@@ -57,7 +57,7 @@ namespace KarlFoleyJamesMoon
         #region AI methods
         public int CheckPlayerScore(int p1score, int goal) // Calculates how many dice the AI rolls compared to player score.
         {
-            int roll = 4; // Default roll
+            int roll;
             if (p1score > (goal - 6)) // If player is 6 away from goal, AI rolls 6 dice
             {
                 roll = 6;
@@ -74,20 +74,24 @@ namespace KarlFoleyJamesMoon
             {
                 roll = rnd.Next(2, 4);
             }
+            else
+            {
+                roll = 4;
+            }
             return roll;
         }
 
         public string RollResponce(int roll) // Based on AI roll, it posts a message about its roll
         {
-            string botReply = "I hope this is a good roll!"; // Default message
+            string botReply = "My turn, is it?"; // Default message
             switch (roll)
             {
-                case 1: botReply += "'\nPerhaps its best to play it safe and role 1'"; break; // If AI rolls a 1
-                case 2: botReply += "'\nI'm not liking my chances, lets just role 2'"; break; // If AI rolls a 2
-                case 3: botReply += "'\nLets try rolling 3 dice'"; break; // If AI rolls a 3
-                case 4: botReply += "'\nFour should get me where I need to go'"; break; // If AI rolls a 4
-                case 5: botReply += "'\nBetter try rolling five for a dash to the finish'"; break; // If AI rolls a 5
-                case 6: botReply += "'\nIts risky, but I need to roll 6 to catch up'"; break; // If AI rolls a 6
+                case 1: botReply += "\nPerhaps its best to play it safe and role 1"; break; // If AI rolls a 1
+                case 2: botReply += "\nI'm not liking my chances, lets just role 2"; break; // If AI rolls a 2
+                case 3: botReply += "\nLets try rolling 3 dice"; break; // If AI rolls a 3
+                case 4: botReply += "\nFour should get me where I need to go"; break; // If AI rolls a 4
+                case 5: botReply += "\nBetter try rolling five for a dash to the finish'"; break; // If AI rolls a 5
+                case 6: botReply += "\nIts risky, but I need to roll 6 to catch up"; break; // If AI rolls a 6
             }
             return botReply; // Returns message
         }
