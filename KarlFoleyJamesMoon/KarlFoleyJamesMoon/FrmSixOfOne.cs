@@ -59,7 +59,7 @@ namespace KarlFoleyJamesMoon
 
         private void AIturn()
         {
-            int iamountofDiceRolled = sCurrentSession.gCurrentGame.Players[1].CheckPlayerScore(sCurrentSession.gCurrentGame.Players[1].Score, sCurrentSession.gCurrentGame.PlayToScore); // this is where the AI turn is handled
+            int iamountofDiceRolled = sCurrentSession.gCurrentGame.Players[1].CheckPlayerScore(sCurrentSession.gCurrentGame.Players[0].Score, sCurrentSession.gCurrentGame.PlayToScore); // this is where the AI turn is handled
             string AiMessage = sCurrentSession.gCurrentGame.Players[1].RollResponce(iamountofDiceRolled);
             System.Threading.Thread.Sleep(3000);
             MessageBox.Show(AiMessage);
@@ -92,6 +92,7 @@ namespace KarlFoleyJamesMoon
             {
                 UpdateTotalWinsTextBox();
                 BtnRoll.Visible = false;
+                BtnRoll.Visible = false;
                 lblNewScore.Visible = true;
                 LblNewGame.Visible = true;
                 tbxNewScore.Visible = true;
@@ -102,7 +103,14 @@ namespace KarlFoleyJamesMoon
             {
                 sCurrentSession.gCurrentGame.SwitchPlayer();
                 lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + "'s Turn";
-                BtnRoll.Visible = true;
+                if (sCurrentSession.ActiveAi && sCurrentSession.gCurrentGame.PlayerTurn == 1)
+                {
+                    BtnRoll.Visible = false;
+                }
+                else
+                {
+                    BtnRoll.Visible = true;
+                }
             }
             refresh();
         }
@@ -286,8 +294,7 @@ namespace KarlFoleyJamesMoon
 
         private void UpdateTotalWinsTextBox()
         {
-            tbxTotalWins.Text = sCurrentSession.playerOne.name + " " + Convert.ToString(sCurrentSession.iPlayerOneTotalWins) + "\n" +
-                                                sCurrentSession.playerTwo.name + " " + Convert.ToString(sCurrentSession.iPlayerTwoTotalWins);
+            tbxTotalWins.Text = sCurrentSession.playerOne.name + ":  " + Convert.ToString(sCurrentSession.iPlayerOneTotalWins) + "\r\n" + sCurrentSession.playerTwo.name + ":  " + Convert.ToString(sCurrentSession.iPlayerTwoTotalWins);
             tbxTotalWins.Refresh();
         }
 
