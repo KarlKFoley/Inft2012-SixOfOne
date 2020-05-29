@@ -3,7 +3,7 @@
 **5/5 3pm Kick off Call**
 ---------------
 * Meet and greet, got to know a little about each other
- * Discused how we were going to work on project
+ * Discussed how we were going to work on project
     * For communication landed on discord.
     * For code sharing and version control github was selected
  * Before working on project starts
@@ -38,28 +38,28 @@
 
 ### 19/5 8am - 11am - 2pm - 4pm - Karl ###
 * Section Three
-   * Created set of methords to create the dice face
-      * Each dice face methord is a set of dot methords - this helps with keeping the dots in the same spot over and over again.
-      * The Dot methords are just fullellipse with cordinates - Maybe for further work, creating global vaiable that allow for one change to increase the size of the dots.
-      * Exlorded hiding and unhiding pictureboxes when a amount of dice are slected so it just shows the amount of dice selected. (might look at having it create the picture boxes dynamically)
-      * Created arrays for all the pictureboxs and graphics so we can access them as a group or just one at a time. This cuts down on repetitive calls to dice faces. had a massive if Statment changed to a loop with an array.
+   * Created set of methods to create the dice face
+      * Each dice face method is a set of dot methods - this helps with keeping the dots in the same spot over and over again.
+      * The Dot methods are just full ellipse with coordinates - Maybe for further work, creating global variable that allow for one change to increase the size of the dots.
+      * Exploded hiding and unhiding pictureboxes when a amount of dice are selected so it just shows the amount of dice selected. (might look at having it create the picture boxes dynamically)
+      * Created arrays for all the pictureboxs and graphics so we can access them as a group or just one at a time. This cuts down on repetitive calls to dice faces. had a massive if Statement changed to a loop with an array.
    * Explored the animation of changing the dots numbers before the final score.
       * Used a timer to create animation. worked well but needed asynchronous to allow the collection of numbers displayed.
       * Changed the timer to a basic "for loop" that changes all the dices faces to a random number for a random amount of time and a random amount times.
 * Section Five and Six
-   * Basic design was already created for selecting mutiple dice. Using radio buttons to control the amount of dice being selected. 
-   * Choose a roll button allowing player to change mind before the rolling of the dice. This better simulats what happens in real world. Allows for hesitation of the roll.
-   * Moved dice displaying to its own methord.
-   * Moved Rolling dice to its own methord.
+   * Basic design was already created for selecting multiple dice. Using radio buttons to control the amount of dice being selected. 
+   * Choose a roll button allowing player to change mind before the rolling of the dice. This better simulates what happens in real world. Allows for hesitation of the roll.
+   * Moved dice displaying to its own method.
+   * Moved Rolling dice to its own method.
   
 
 ### 25/5 4pm -7pm - Karl ###
-* Created Dice Class to handle counting the number a particcualr number is rolled
+* Created Dice Class to handle counting the number a particular number is rolled
 * Created Player Class to handle what a player in a game.
 * Created Game Class to handle all games in a Session
 * Created Session class to handle the all games while just two player or one player is playing
-    * This class was created so that overall vairbles where able to be handled with out being deleted over and over
-    * Also made the code easier to read once we had a class teird approch to the project
+    * This class was created so that overall variables where able to be handled with out being deleted over and over
+    * Also made the code easier to read once we had a class tried approach to the project
 
 
 
@@ -68,14 +68,14 @@
 * Create dice roll mockup (posted on discord)
 
 ### 26/5 9am - 2pm - Karl ###
-* Created methords to handle the end of the game in both session and in game clases
-    * Issues found during testing of end game bethords with preset data
-    * Have tried to have account of all senarios for the game to end, while making them generic so there aren't multiple methods for ending the game
-    * Game up with two diffect senarios where the game will and who they should be handled
-    * Changed all End game methords to return a bool instead of a number
+* Created methods to handle the end of the game in both session and in game class
+    * Issues found during testing of end game methods with pre-set data
+    * Have tried to have account of all scenarios for the game to end, while making them generic so there aren't multiple methods for ending the game
+    * Game up with two different scenarios where the game will and who they should be handled
+    * Changed all End game methods to return a bool instead of a number
 * Created methods to handle refreshing elements as needed.
-* Created correct labeling for six of one form.
-* Fixed issue with incremented dice class. Made Dice variables read only, allowing for incremented adustment of dice
+* Created correct labelling for six of one form.
+* Fixed issue with incremented dice class. Made Dice variables read only, allowing for incremented adjustment of dice
 
 ### 26/5 6pm - 8pm - 10pm - 12am - James ###
 * Created number checker and sorter for FrmSixOfOne.cs
@@ -84,8 +84,8 @@
 ### 27/5 10am - 4pm - Karl ###
 * Ran into issue passing session object from one form to another.
     * Issue fixed was not creating the form correctly from menu to main game form.
-* Cleaned up code around display and anchorged all object in six of one form.
-* Realised all classes were created using Java standards get and set methords redesigned all classes so that they are in C# class standards
+* Cleaned up code around display and anchored all object in six of one form.
+* Realised all classes were created using Java standards get and set methods redesigned all classes so that they are in C# class standards
 
 ### 27/5 12pm - 2pm - 4pm - 6pm - 8pm - 10pm - James ###
 * Cleaned up cases inside of ScoreCheck()
@@ -111,7 +111,7 @@
     * Could not call Ai class on player array correctly
     * Ended up merging the AI and player classes.
 * Added missing comments in the code.
-* Moved code out of roll button so that Ai could roll the dice with out having to call the on click methord for roll dice which players use.
+* Moved code out of roll button so that Ai could roll the dice with out having to call the on click method for roll dice which players use.
 * Fixed issue with scoring being assigned instead of being +=
 
 
