@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace KarlFoleyJamesMoon
 {    // Karl Foley and James Moon, May 2020
-    // Handling basic game setup and allows user to open rules before start of the game
+    // Handling basic game setup and allows user to learn the rules before start of the game
     public partial class FrmSixOfOneMenu : Form
     {
         private String sOneName, sTwoName;
@@ -57,7 +57,7 @@ namespace KarlFoleyJamesMoon
             {
                 sOneName = "Player One";
             }
-            if (RadButPlayersOne.Checked) 
+            if (RadButPlayersOne.Checked) // helps create the Ai player
             {
                 bActivateTheAI = true;
                 sTwoName = "MacWin";
@@ -73,11 +73,11 @@ namespace KarlFoleyJamesMoon
                     sTwoName = "Player Two";
                 }
             }
-            try
+            try 
             {
                 iScore = Convert.ToInt32(TbxPlayToScore.Text);
             }
-            catch
+            catch // auto assigns 50 if nothing is enterd or if characters are entered.
             {
                 iScore = 50;
             }

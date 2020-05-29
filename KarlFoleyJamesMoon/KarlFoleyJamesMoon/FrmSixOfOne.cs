@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace KarlFoleyJamesMoon
 {
+    // Karl Foley and James Moon, May 2020
+    // Handling basic game all Game elements are handled here.
     public partial class FrmSixOfOne : Form
     {
         private Graphics graDiceOne;
@@ -48,15 +50,17 @@ namespace KarlFoleyJamesMoon
 
         private void BtnRoll_Click(object sender, EventArgs e)
         {
-            BtnRoll.Visible = false;
-            BtnRoll.Refresh();
+            BtnRoll.Visible = false; // hides the roll button to stop mutipole button clicks
+            BtnRoll.Refresh(); // refreshes the button
             RollDice(HowManyDiceRolled());
-            if (sCurrentSession.ActiveAi && sCurrentSession.gCurrentGame.PlayerTurn == 1)
+            if (sCurrentSession.ActiveAi && sCurrentSession.gCurrentGame.PlayerTurn == 1)//checks if its one player and has the AI go if the Ai is active
             {
                 AIturn();
             }
         }
 
+
+        //handles the Ai player turn
         private void AIturn()
         {
             int iamountofDiceRolled = sCurrentSession.gCurrentGame.Players[1].CheckPlayerScore(sCurrentSession.gCurrentGame.Players[0].Score, sCurrentSession.gCurrentGame.PlayToScore); // this is where the AI turn is handled
@@ -67,7 +71,8 @@ namespace KarlFoleyJamesMoon
             RollDice(iamountofDiceRolled);
         }
 
-
+        // Method that handles the actual dice roll for all visual elements.
+        // 
         private void  RollDice(int iamountofDiceRolled)
         {
             int[] iScoreOnDice = new int[iamountofDiceRolled];
@@ -79,8 +84,8 @@ namespace KarlFoleyJamesMoon
                     int iDiceRoll = RollADice();
                     arrayOfPictureBoxs[iDiceNumber].Visible = true;
                     arrayOfPictureBoxs[iDiceNumber].Refresh();
-                    arrayOfGraphics[iDiceNumber].Clear(Color.Black);
-                    displayDice(iDiceNumber, iDiceRoll);
+                    arrayOfGraphics[iDiceNumber].Clear(Color.Black); //Making sure picture box is clear
+                    displayDice(iDiceNumber, iDiceRoll); // calling tthe correct methords to show the dice and what number has been rolled
                     System.Threading.Thread.Sleep(randNumber.Next(200, 400));
                     iScoreOnDice[iDiceNumber] = iDiceRoll;
                 }
@@ -88,7 +93,7 @@ namespace KarlFoleyJamesMoon
             LblTurnOutcome.Text = sCurrentSession.gCurrentGame.CountScore(iScoreOnDice);
             LblScorePlayerOne.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[0].Score);
             LblScorePlayerTwo.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[1].Score);
-            if (sCurrentSession.GameHasEnded())
+            if (sCurrentSession.GameHasEnded())//checks to make sure the game hasn't ended if so shows the new game options are displayed
             {
                 UpdateTotalWinsTextBox();
                 BtnRoll.Visible = false;
@@ -101,9 +106,9 @@ namespace KarlFoleyJamesMoon
             }
             else
             {
-                sCurrentSession.gCurrentGame.SwitchPlayer();
-                lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + "'s Turn";
-                if (sCurrentSession.ActiveAi && sCurrentSession.gCurrentGame.PlayerTurn == 1)
+                sCurrentSession.gCurrentGame.SwitchPlayer(); // switches players
+                lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + "'s Turn"; //updates the text of whos turn it is
+                if (sCurrentSession.ActiveAi && sCurrentSession.gCurrentGame.PlayerTurn == 1) 
                 {
                     BtnRoll.Visible = false;
                 }
@@ -115,6 +120,8 @@ namespace KarlFoleyJamesMoon
             refresh();
         }
 
+
+        // Methord to refresh elements after they have been updated
         private void refresh()
         {
             btnExit.Refresh();
@@ -126,7 +133,7 @@ namespace KarlFoleyJamesMoon
             tbxNewScore.Refresh();
         }
 
-
+        //Resets of pictureboxes to black and hides them so new dice can be shown
         private void Clear_Dice()
         {
             for (int iDiceNumber = 0; iDiceNumber < iAmountOfDice; iDiceNumber++)
@@ -137,7 +144,7 @@ namespace KarlFoleyJamesMoon
 
         }
 
-
+        //Handles how many dice have been selected by the play to be rolled
         private int HowManyDiceRolled()
         {
             if (radButDiceNumberOne.Checked) {return 1;}
@@ -148,14 +155,16 @@ namespace KarlFoleyJamesMoon
             else {return 6;}
         }
 
+        //handles  the roll of the dice
         private int RollADice()
         {
             return randNumber.Next(1, 7);
         }
 
-
+        #region Dice Image creation methods
         //All below methords handle creating dice faces
 
+            //Takes the picutre box and the number which is going to be displayed
         private void displayDice(int idiceLocation, int iDiceRoll)
         {
             int iamountofDiceRolled = HowManyDiceRolled();
@@ -181,7 +190,8 @@ namespace KarlFoleyJamesMoon
                     break;
             }
         }
-
+        #region sides of the dice
+        //All below methords create the faces of each number of the dice
         private void diceSide_One(Graphics graDiceLocationNumber)
         {
             diceSide_CenterDot(graDiceLocationNumber);
@@ -227,7 +237,9 @@ namespace KarlFoleyJamesMoon
             diceSide_RightCenter(graDiceLocationNumber);
             diceSide_LeftCenter(graDiceLocationNumber);
         }
-
+        #endregion
+        #region Dots
+        //All below methords handle the where the dots are located
         private void diceSide_CenterDot(Graphics graDiceLocationNumber)
         {
             graDiceLocationNumber.FillEllipse(Brushes.White, 45, 45, 10, 10);
@@ -262,12 +274,15 @@ namespace KarlFoleyJamesMoon
         {
             graDiceLocationNumber.FillEllipse(Brushes.White, 70, 45, 10, 10);
         }
-
+        #endregion
+        #endregion
+       //On click will exite the program
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //Handles the creation of a new game after a completed game
         private void btnNewGame_Click(object sender, EventArgs e)
         {
             int iScore;
@@ -292,6 +307,7 @@ namespace KarlFoleyJamesMoon
             refresh();
         }
 
+        //handles text creation of the text in the texbox that shows who has won and how many times.
         private void UpdateTotalWinsTextBox()
         {
             tbxTotalWins.Text = sCurrentSession.playerOne.name + ":  " + Convert.ToString(sCurrentSession.iPlayerOneTotalWins) + "\r\n" + sCurrentSession.playerTwo.name + ":  " + Convert.ToString(sCurrentSession.iPlayerTwoTotalWins);
