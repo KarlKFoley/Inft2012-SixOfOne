@@ -77,14 +77,7 @@ namespace KarlFoleyJamesMoon
             iplayerOneWins = 0;
             iplayerTwoWins = 0;
             pFirstPlayer = new Player(sPlayerName);
-            if (bActivateTheAI)
-            {
-                pSecondPlayer = new Aiplayer(sPlayerTwoName);
-            }
-            else
-            {
-                pSecondPlayer = new Player(sPlayerTwoName);
-            }
+            pSecondPlayer = new Player(sPlayerTwoName);
             pSecondPlayer = new Player(sPlayerTwoName);
             gGame = new Game(pFirstPlayer, pSecondPlayer, iScore);
         }

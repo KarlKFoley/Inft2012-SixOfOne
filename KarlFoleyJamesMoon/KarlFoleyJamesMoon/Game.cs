@@ -115,14 +115,14 @@ namespace KarlFoleyJamesMoon
                 }
             }else if (ThreeOfAKind()) //Check for three of a kind
             {
-                pPlayers[iPlayersTurn].Score = score * 2; // Doubles score if three of a kind detected
+                pPlayers[iPlayersTurn].Score += score * 2; // Doubles score if three of a kind detected
                 returnmessage = Players[iPlayersTurn].name + ", you scored double Points \nbecuase you rolled three of a kind!\n You Scored " + score * 2 + " this turn.";
                 returnmessage+=ScoreReached();
             }
             else
             {
                 returnmessage = Players[iPlayersTurn].name + ", you scored " + score + " this turn.";
-                pPlayers[iPlayersTurn].Score = score;
+                pPlayers[iPlayersTurn].Score += score;
                 returnmessage += ScoreReached();
             }
             return returnmessage;
