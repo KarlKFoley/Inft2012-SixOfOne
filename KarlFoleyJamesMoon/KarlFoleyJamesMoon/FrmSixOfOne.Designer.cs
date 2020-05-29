@@ -309,7 +309,7 @@
             this.LblTurnOutcome.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LblTurnOutcome.AutoSize = true;
             this.LblTurnOutcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTurnOutcome.Location = new System.Drawing.Point(376, 475);
+            this.LblTurnOutcome.Location = new System.Drawing.Point(391, 367);
             this.LblTurnOutcome.Name = "LblTurnOutcome";
             this.LblTurnOutcome.Size = new System.Drawing.Size(0, 25);
             this.LblTurnOutcome.TabIndex = 15;
