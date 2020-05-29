@@ -376,13 +376,13 @@
             this.tbxTotalWins.Location = new System.Drawing.Point(12, 463);
             this.tbxTotalWins.Multiline = true;
             this.tbxTotalWins.Name = "tbxTotalWins";
-            this.tbxTotalWins.Size = new System.Drawing.Size(58, 37);
+            this.tbxTotalWins.Size = new System.Drawing.Size(115, 37);
             this.tbxTotalWins.TabIndex = 21;
             // 
             // LblTotalWins
             // 
             this.LblTotalWins.AutoSize = true;
-            this.LblTotalWins.Location = new System.Drawing.Point(12, 447);
+            this.LblTotalWins.Location = new System.Drawing.Point(39, 447);
             this.LblTotalWins.Name = "LblTotalWins";
             this.LblTotalWins.Size = new System.Drawing.Size(58, 13);
             this.LblTotalWins.TabIndex = 22;
