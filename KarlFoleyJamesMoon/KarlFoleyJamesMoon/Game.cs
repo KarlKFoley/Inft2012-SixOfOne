@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace KarlFoleyJamesMoon
 {
+    // Karl Foley and James Moon, May 2020
+    // Game class is used to control a single game
+    // All rules all here for the game
     public class Game
     {
         private Player[] pPlayers = new Player[2];
@@ -14,7 +17,7 @@ namespace KarlFoleyJamesMoon
         private int iPlayToScore, iPlayersTurn;
         private bool bGameEnd, bCurrentPlayerWins;
         private Random randNumber = new Random();
-
+        #region Public properties
         public Player[] Players // When called, returns array of players
         {
             get
@@ -54,6 +57,9 @@ namespace KarlFoleyJamesMoon
                 return bCurrentPlayerWins;
             }
         }
+
+        #endregion
+        #region Constructor
         public Game(Player pNewPlayerOne, Player pNewPlayerTwo, int iSelectedScore) // Calls a new game inside the session
         {
             int iPlayertrunNumber = randNumber.Next(0,1); // Upon game start, decides who goes first
@@ -72,7 +78,9 @@ namespace KarlFoleyJamesMoon
                 iPlayersTurn = 1;
             }
         }
+        #endregion
 
+        #region Rule Methords
         public string CountScore(int[] iScoreOnDice) // Takes in the random dice rolls, and stores variables inside Dice.cs
         {
             int result = 0;
@@ -191,5 +199,6 @@ namespace KarlFoleyJamesMoon
             EndGame();
             return Players[iPlayersTurn].name + ", you rolled Four one's.\n You Win.";
         }
+        #endregion
     }
 }

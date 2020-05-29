@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace KarlFoleyJamesMoon
 {
+    // Karl Foley and James Moon, May 2020
+    // Class is used to control each game session allowing for playing to continue playing over and over again
+    // Also stores who won each game
     public class Sessions
     {
+        // These are instance variables 
         private Player pFirstPlayer, pSecondPlayer;
         private Game gGame;
         private int iplayerOneWins, iplayerTwoWins;
         private bool bActiveAi;
+
+        // These are public assessable variables but once set unable to be changed once session has been created.
+        //All Read Only variables
         #region Public properties
         public Player playerOne
         {
@@ -58,13 +65,11 @@ namespace KarlFoleyJamesMoon
             {
                 return bActiveAi;
             }
-            set
-            {
-                bActiveAi = value;
-            }
         }
 
         #endregion
+
+        #region Constructors
         public Sessions(string sPlayerName, string sPlayerTwoName, int iScore, bool bActivateTheAI)
         {
             bActiveAi = bActivateTheAI;
@@ -82,17 +87,23 @@ namespace KarlFoleyJamesMoon
             pSecondPlayer = new Player(sPlayerTwoName);
             gGame = new Game(pFirstPlayer, pSecondPlayer, iScore);
         }
+        #endregion
 
+        #region Other methods
+
+        
         public void restartGame(int iScore, bool firstPLayer)
         {
             gGame = new Game(pFirstPlayer, pSecondPlayer, iScore);
         }
 
+
+        //Assigns a value to winner once the game is over
         public bool GameHasEnded()
         {
-            if(gGame.GameEnded && gGame.CurrentPlayerWins)
+            if(gGame.GameEnded && gGame.CurrentPlayerWins) //Checks to see if current player won the game if not the other player won
             {
-                if (gGame.PlayerTurn == 0)
+                if (gGame.PlayerTurn == 0) //Checks whos turn it is to assign the win
                 {
                     playerOneWins();
                 }
@@ -102,9 +113,9 @@ namespace KarlFoleyJamesMoon
                 }
                 return true;
             }
-            else if(gGame.GameEnded)
+            else if(gGame.GameEnded) //Checks to see if the current game is over
             {
-                if (gGame.PlayerTurn == 0)
+                if (gGame.PlayerTurn == 0) //Checks whos turn it is to assign the other player to the win
                 {
                     PlayerTwoWins();
                 }
@@ -120,13 +131,18 @@ namespace KarlFoleyJamesMoon
             }
         }
 
+        //Handles imcementing playerOneWins (Possible should of had this as an attibute of player)
+
         public void playerOneWins()
         {
             iplayerOneWins++;
         }
+
+        //Handles imcementing playerTwoWins (Possible should of had this as an attibute of player)
         public void PlayerTwoWins()
         {
             iplayerTwoWins++;
         }
+        #endregion
     }
 }

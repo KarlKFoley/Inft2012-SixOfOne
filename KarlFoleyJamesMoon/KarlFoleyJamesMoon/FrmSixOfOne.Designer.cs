@@ -40,7 +40,7 @@
             this.radButDiceNumberThree = new System.Windows.Forms.RadioButton();
             this.radButDiceNumberTwo = new System.Windows.Forms.RadioButton();
             this.radButDiceNumberOne = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTotalDiceRoll = new System.Windows.Forms.Label();
             this.pictBoxDiceOne = new System.Windows.Forms.PictureBox();
             this.pictBoxDiceTwo = new System.Windows.Forms.PictureBox();
             this.pictBoxDiceThree = new System.Windows.Forms.PictureBox();
@@ -55,7 +55,8 @@
             this.tbxNewScore = new System.Windows.Forms.TextBox();
             this.LblNewGame = new System.Windows.Forms.Label();
             this.lblNewScore = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxTotalWins = new System.Windows.Forms.TextBox();
+            this.LblTotalWins = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceTwo)).BeginInit();
@@ -125,7 +126,7 @@
             this.groupBox1.Controls.Add(this.radButDiceNumberThree);
             this.groupBox1.Controls.Add(this.radButDiceNumberTwo);
             this.groupBox1.Controls.Add(this.radButDiceNumberOne);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblTotalDiceRoll);
             this.groupBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(210, 42);
@@ -207,15 +208,15 @@
             this.radButDiceNumberOne.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.radButDiceNumberOne.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblTotalDiceRoll
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(169, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(305, 24);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "How many dice do you want to Roll";
+            this.lblTotalDiceRoll.AutoSize = true;
+            this.lblTotalDiceRoll.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDiceRoll.Location = new System.Drawing.Point(169, 0);
+            this.lblTotalDiceRoll.Name = "lblTotalDiceRoll";
+            this.lblTotalDiceRoll.Size = new System.Drawing.Size(305, 24);
+            this.lblTotalDiceRoll.TabIndex = 6;
+            this.lblTotalDiceRoll.Text = "How many dice do you want to Roll";
             // 
             // pictBoxDiceOne
             // 
@@ -368,21 +369,32 @@
             this.lblNewScore.Text = "New Score";
             this.lblNewScore.Visible = false;
             // 
-            // textBox1
+            // tbxTotalWins
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Location = new System.Drawing.Point(12, 466);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 21;
+            this.tbxTotalWins.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbxTotalWins.BackColor = System.Drawing.SystemColors.Control;
+            this.tbxTotalWins.Location = new System.Drawing.Point(12, 463);
+            this.tbxTotalWins.Multiline = true;
+            this.tbxTotalWins.Name = "tbxTotalWins";
+            this.tbxTotalWins.Size = new System.Drawing.Size(58, 37);
+            this.tbxTotalWins.TabIndex = 21;
+            // 
+            // LblTotalWins
+            // 
+            this.LblTotalWins.AutoSize = true;
+            this.LblTotalWins.Location = new System.Drawing.Point(12, 447);
+            this.LblTotalWins.Name = "LblTotalWins";
+            this.LblTotalWins.Size = new System.Drawing.Size(58, 13);
+            this.LblTotalWins.TabIndex = 22;
+            this.LblTotalWins.Text = "Total Wins";
             // 
             // FrmSixOfOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 561);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.LblTotalWins);
+            this.Controls.Add(this.tbxTotalWins);
             this.Controls.Add(this.lblNewScore);
             this.Controls.Add(this.LblNewGame);
             this.Controls.Add(this.tbxNewScore);
@@ -405,6 +417,7 @@
             this.Controls.Add(this.LblPlayerOneName);
             this.Name = "FrmSixOfOne";
             this.Text = "Six Of One";
+            this.Load += new System.EventHandler(this.FrmSixOfOne_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictBoxDiceOne)).EndInit();
@@ -426,7 +439,7 @@
         private System.Windows.Forms.Label LblScorePlayerOne;
         private System.Windows.Forms.Label LblScorePlayerTwo;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTotalDiceRoll;
         private System.Windows.Forms.PictureBox pictBoxDiceOne;
         private System.Windows.Forms.PictureBox pictBoxDiceTwo;
         private System.Windows.Forms.PictureBox pictBoxDiceThree;
@@ -447,6 +460,7 @@
         private System.Windows.Forms.TextBox tbxNewScore;
         private System.Windows.Forms.Label LblNewGame;
         private System.Windows.Forms.Label lblNewScore;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxTotalWins;
+        private System.Windows.Forms.Label LblTotalWins;
     }
 }

@@ -42,6 +42,7 @@ namespace KarlFoleyJamesMoon
             LblPlayerTwoName.Text = sCurrentSession.gCurrentGame.Players[1].name;
             lblPlayerTurn.Text = "Its " + sCurrentSession.gCurrentGame.Players[sCurrentSession.gCurrentGame.PlayerTurn].name + " Turn";
             lblScore.Text = "First to " + sCurrentSession.gCurrentGame.PlayToScore;
+            UpdateTotalWinsTextBox();
             Application.DoEvents();
         }
 
@@ -52,9 +53,9 @@ namespace KarlFoleyJamesMoon
             int iamountofDiceRolled = 0;
             if (sCurrentSession.ActiveAi && sCurrentSession.gCurrentGame.PlayerTurn == 1)
             {
-                //iamountofDiceRolled = sCurrentSession.gCurrentGame.Players[1].CheckPlayerScore( p1score, goal); // this is where the AI turn is handled
-                //string AiMessage = sCurrentSession.gCurrentGame.Players[1].RollResponce(iamountofDiceRolled);
-                //MessageBox.Show(AiMessage);
+                iamountofDiceRolled = sCurrentSession.gCurrentGame.Players[1].CheckPlayerScore(sCurrentSession.gCurrentGame.Players[1].Score, sCurrentSession.gCurrentGame.PlayToScore); // this is where the AI turn is handled
+                string AiMessage = sCurrentSession.gCurrentGame.Players[1].RollResponce(iamountofDiceRolled);
+                MessageBox.Show(AiMessage);
                 System.Threading.Thread.Sleep(5000);
             }
             else
@@ -66,6 +67,7 @@ namespace KarlFoleyJamesMoon
             LblScorePlayerTwo.Text = sScoreTitle + Convert.ToString(sCurrentSession.gCurrentGame.Players[1].Score);
             if (sCurrentSession.GameHasEnded())
             {
+                UpdateTotalWinsTextBox();
                 BtnRoll.Visible = false;
                 lblNewScore.Visible = true;
                 LblNewGame.Visible = true;
@@ -267,7 +269,6 @@ namespace KarlFoleyJamesMoon
             {
                 iScore = 50;
             }
-
             sCurrentSession.restartGame(iScore, true);
             LblScorePlayerOne.Text = sScoreTitle + "0";
             LblScorePlayerTwo.Text = sScoreTitle + "0";
@@ -279,6 +280,18 @@ namespace KarlFoleyJamesMoon
             btnNewGame.Visible = false; 
             tbxNewScore.Visible = false;
             refresh();
+        }
+
+        private void UpdateTotalWinsTextBox()
+        {
+            tbxTotalWins.Text = sCurrentSession.playerOne.name + " " + Convert.ToString(sCurrentSession.iPlayerOneTotalWins) + "\n" +
+                                                sCurrentSession.playerTwo.name + " " + Convert.ToString(sCurrentSession.iPlayerTwoTotalWins);
+            tbxTotalWins.Refresh();
+        }
+
+        private void FrmSixOfOne_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

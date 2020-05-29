@@ -14,7 +14,7 @@ namespace KarlFoleyJamesMoon
     {
         private String sOneName, sTwoName;
         private int iScore;
-        private Sessions gameSession;
+        private Sessions sGameSession;
         private FrmSixOfOne SixOfOne;
         private frmRules Rules = new frmRules();
 
@@ -78,8 +78,8 @@ namespace KarlFoleyJamesMoon
             {
                 iScore = 50;
             }
-            gameSession = new Sessions(sOneName, sTwoName, iScore, bActivateTheAI);
-            FrmSixOfOne SixOfOne = new FrmSixOfOne(gameSession);
+            sGameSession = new Sessions(sOneName, sTwoName, iScore, bActivateTheAI);
+            FrmSixOfOne SixOfOne = new FrmSixOfOne(sGameSession);
             SixOfOne.ShowDialog();
 
         }
